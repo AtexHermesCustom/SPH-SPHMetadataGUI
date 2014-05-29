@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPanel
+	CODE="com.atex.h11.sph.metadata.category.CustomMetadataPanel"
+	CODEBASE="custommetadata"
+	ARCHIVE="sphmetadata.jar">
+</CustomPanel>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<configuration>
+		<logFile>log/SPHCustomMetadata.log</logFile>
+		<!-- logLevel allowed values (in ascending order, in terms of level of detail):
+			OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
+		-->
+		<logLevel>FINEST</logLevel>
+	</configuration>
+	<metadataNames>
+		<newsEvent>newsEvent</newsEvent>
+		<coAuthor>coAuthor</coAuthor>
+		<addlReport>addlReport</addlReport>
+		<copyright>copyright</copyright>
+		<sub>sub</sub>
+		<checker>checker</checker>
+		<numResub>numResub</numResub>
+		<resubReason>resubReason</resubReason>
+		<printDiary>printDiary</printDiary>
+		<printOwn>printOwn</printOwn>
+		<printCommentary>printCommentary</printCommentary>
+		<printFeature>printFeature</printFeature>
+		<printSidebar>printSidebar</printSidebar>
+		<printInfographics>printInfographics</printInfographics>
+		<printWire>printWire</printWire>
+		<onlineDiary>onlineDiary</onlineDiary>
+		<onlineOwn>onlineOwn</onlineOwn>
+		<onlineTweet>onlineTweet</onlineTweet>
+		<onlineFirstPhoto>onlineFirstPhoto</onlineFirstPhoto>
+		<onlineFirstVideo>onlineFirstVideo</onlineFirstVideo>
+		<onlineVideoPackage>onlineVideoPackage</onlineVideoPackage>
+		<onlineBlog>onlineBlog</onlineBlog>
+		<priority>priority</priority>
+		<webCat1>webCat1</webCat1>
+		<webCat2>webCat2</webCat2>
+	</metadataNames>
+	<coAuthor insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>co Author 1</item>
+		<item>co Author 2</item>
+		<item>co Author 3</item>
+	</coAuthor>
+	<addlReport insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>addl Report 1</item>
+		<item>addl Report 2</item>
+		<item>addl Report 3</item>
+	</addlReport>
+	<copyright insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>copyright a</item>
+		<item>copyright b</item>
+		<item>copyright c</item>
+	</copyright>
+	<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>sub 1</item>
+		<item>sub 2</item>
+		<item>sub 3</item>
+	</sub>
+	<checker insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>checker a</item>
+		<item>checker b</item>
+		<item>checker c</item>
+	</checker>
+	<numResub insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>num resub 1</item>
+		<item>num resub 2</item>
+		<item>num resub 3</item>
+	</numResub>
+	<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>priority i</item>
+		<item>priority ii</item>
+		<item>priority iii</item>
+	</priority>
+	<webCat1 insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>web cat 1 - a</item>
+		<item>web cat 1 - b</item>
+		<item>web cat 1 - c</item>
+	</webCat1>
+	<webCat2 insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>web cat 2 - a</item>
+		<item>web cat 2 - b</item>
+		<item>web cat 2 - c</item>
+	</webCat2>
+</metadata>

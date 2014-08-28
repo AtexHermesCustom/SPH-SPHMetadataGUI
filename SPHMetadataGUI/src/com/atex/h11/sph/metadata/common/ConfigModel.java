@@ -1,5 +1,6 @@
 package com.atex.h11.sph.metadata.common;
 
+import java.awt.Color;
 import java.io.IOException;
 
 import javax.swing.DefaultListModel;
@@ -90,8 +91,14 @@ public class ConfigModel {
 		if (GetAttribValue(metadata, "selectFirstItemAsDefault").trim().equals("1")) {
 			cmbBox.setSelectedIndex(0);
 		}
+		
+		// select mandatory
+		if (GetAttribValue(metadata, "selectMandatory").trim().equals("1")) {
+			cmbBox.setBackground(Color.red);
+		}
+
 	}    
-    
+ 
     public DefaultListModel<JCheckBox> InitCheckBoxListModel(String metadata) 
 			throws XPathExpressionException {
 		NodeList nl = GetListItems(metadata);

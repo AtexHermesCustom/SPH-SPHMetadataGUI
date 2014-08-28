@@ -1,3 +1,4 @@
+package com.atex.h11.sph.metatadata.test.swing;
 /**
  * Example of components laid out in a grid
  */

@@ -24,13 +24,9 @@ public interface Constants {
 	// File Path constants
 	// The path is relative to the HermesDir folder, i.e. the folder containing nroom.exe
 	public static final String METADATA_GUI_PATH = "custommetadata\\";
-	public static final String METADATA_CONFIG_PATH = "u:\\custommetadata\\BT\\";
-	public static final String KEYWORD_PATH = "c:\\Hermes11\\custommetadata\\BT\\";
-	public static final String DATA_PATH = "c:\\Hermes11\\newsdata\\SPHBHT11\\user\\";
-	public static final String CONF_FILE = METADATA_CONFIG_PATH + "SPHMetadata.xml";
-	public static final String KEYWORD_FILE = KEYWORD_PATH + "keyword_master.txt";
-	public static final String MY_KEYWORD_FILE = DATA_PATH + "keyword.txt";
-	
+	public static final String METADATA_PROPERTIES_FILE = METADATA_GUI_PATH + "SPHMetadata.properties";
+	public static final String METADATA_CONFIG_FILE_PROPERTY = "MetadataConfigFile";
+
 	public static final String FALSE = "false";
 	public static final String TRUE = "true";
 }

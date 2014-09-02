@@ -69,10 +69,9 @@ import javax.swing.BorderFactory;
 import javax.swing.border.BevelBorder;
 
 //public class MetadataPanel extends JPanel implements ActionListener {
-public class MetadataPanel extends JPanel implements DocumentListener {
+public class MetadataPanel extends JPanel {
 	
     // Create the completion service.
-    NameService nameService = new NameService();
     private final static String newline = "\n";  //  @jve:decl-index=0:
     
 	private static final long serialVersionUID = 1L;
@@ -127,16 +126,16 @@ public class MetadataPanel extends JPanel implements DocumentListener {
 			    	}			
 					
 		            /*  Write to a file   */
-		            try {
-		                 File newTextFile = new File(Constants.MY_KEYWORD_FILE);
-		                 FileWriter fw = new FileWriter(newTextFile,true);
-		                 jTextAreaKey.write(fw);
-		         		fw.close();
+//		            try {
+//		                 File newTextFile = new File(Constants.MY_KEYWORD_FILE);
+//		                 FileWriter fw = new FileWriter(newTextFile,true);
+//		                 jTextAreaKey.write(fw);
+//		         		fw.close();
 
-		             } catch (IOException iox) {
+//		             } catch (IOException iox) {
 		                 //do stuff with exception
-		                 iox.printStackTrace();
-		             }
+//		                 iox.printStackTrace();
+//		             }
 		             
 				}
 			});
@@ -403,7 +402,7 @@ public class MetadataPanel extends JPanel implements DocumentListener {
 		this.add(getJTextFieldURL(), null);
 		this.add(getJCheckBoxSec(), null);
 		
-		jTextFieldKeywords.getDocument().addDocumentListener(this);
+		//jTextFieldKeywords.getDocument().addDocumentListener(this);
 	}
 	
 
@@ -470,108 +469,11 @@ public class MetadataPanel extends JPanel implements DocumentListener {
 /* -- new methods here  */	
 	
     public void run() {
+    	
     }
+
+
     /**
-     * A simple {@link CompletionService} providing completion for most popular
-     * baby names 2008.
-     */
-    private static class NameService implements CompletionService<String> {
-
-        /** Our name data. */
-        private List<String> data;
-
-        /**
-         * Create a new <code>NameService</code> and populate it.
-         */
-        public NameService() {
-        	// Name of the file
-            // Constants.KEYWORD_FILE
-        	// Constants.MY_KEYWORD_FILE
-            String fileName=Constants.KEYWORD_FILE;
-//            String fileName=Constants.MY_KEYWORD_FILE;
-            try{
-
-            // create token1
-            String token1 = "";            
-            // create Scanner inFile1
-            Scanner inFile1 = new Scanner(new File(fileName)).useDelimiter("\n");
-            List<String> temps = new LinkedList<String>();
-            // while loop
-            while (inFile1.hasNext()) {
-              // find next line
-              token1 = inFile1.next();
-              temps.add(token1);
-            }
-            inFile1.close();
-
-            String[] tempsArray = temps.toArray(new String[0]);
-            
-            data = Arrays.asList(tempsArray);
-            
-            }catch(Exception e){
-                    System.out.println("Error while reading file line by line:" 
-                    + e.getMessage());                      
-            }
-        }
-
-        /** {@inheritDoc} */
-        @Override
-        public String toString() {
-            StringBuilder b = new StringBuilder();
-            for (String o : data) {
-                b.append(o).append("\n");
-            }
-            return b.toString();
-        }
-
-        /** {@inheritDoc} */
-        public String autoComplete(String startsWith) {
-            // Naive implementation, but good enough for the sample
-            String hit = null;
-            for (String o : data) {
-                if (o.startsWith(startsWith)) {
-                    // CompletionService contract states that we only
-                    // should return completion for unique hits.
-                    if (hit == null) {
-                        hit = o;
-                    } else {
-                        hit = null;
-                        break;
-                    }
-                }
-            }
-//            System.out.println(hit);
-            return hit;
-        }
-
-    }
-	@Override
-	public void changedUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
-//		System.out.println("changedUpdate()");
-	}
-	
-	@Override
-	public void removeUpdate(DocumentEvent arg0) {
-		// TODO Auto-generated method stub
-//		System.out.println("removeUpdate()");
-	}	
-
-	@Override
-	public void insertUpdate(DocumentEvent ev) {
-		
-		// Create the auto completing document model with a reference to the
-        // service and the input field.
-        Document autoCompleteDocument = new AutoCompleteDocument(nameService,
-        		jTextFieldKeywords);
-
-        // Set the auto completing document as the document model on our input
-        // field.
-        jTextFieldKeywords.setDocument(autoCompleteDocument);
-
-	}
-
-	/**
 	 * This method initializes jTextAreaKey	
 	 * 	
 	 * @return javax.swing.JTextArea	

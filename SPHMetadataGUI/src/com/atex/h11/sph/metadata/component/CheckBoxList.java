@@ -60,6 +60,15 @@ public class CheckBoxList extends JList<JCheckBox> {
 		
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 	}
+	
+	/**
+	 * This method returns the number of selected items
+	 * 	
+	 * @return int
+	 */	
+	public int getSelectedCount() {
+		return this.getModel().getSize();
+	}
 
 	/**
 	 * This method returns an ArrayList of selected items

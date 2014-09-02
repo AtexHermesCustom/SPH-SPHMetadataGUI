@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 
 public class CheckBoxList extends JList<JCheckBox> {
 	private static final long serialVersionUID = 1L;
+	private boolean enabled;
 	protected static Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);
 
 	/**
@@ -26,11 +27,13 @@ public class CheckBoxList extends JList<JCheckBox> {
 			new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
-					int index = locationToIndex(e.getPoint());
-					if (index != -1) {
-						JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
-						checkbox.setSelected(! checkbox.isSelected());
-						repaint();
+					if (enabled) {
+						int index = locationToIndex(e.getPoint());
+						if (index != -1) {
+							JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
+							checkbox.setSelected(! checkbox.isSelected());
+							repaint();
+						}
 					}
 	            }
 			}
@@ -40,14 +43,16 @@ public class CheckBoxList extends JList<JCheckBox> {
 			new KeyListener() {
 	            @Override
 	            public void keyPressed(KeyEvent e) {
-	                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-	                    int index = getSelectedIndex();
-						if (index != -1) {
-							JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
-							checkbox.setSelected(! checkbox.isSelected());
-							repaint();
-						}
-	                }
+	            	if (enabled) {
+		                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		                    int index = getSelectedIndex();
+							if (index != -1) {
+								JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
+								checkbox.setSelected(! checkbox.isSelected());
+								repaint();
+							}
+		                }
+	            	}
 	            }
 
 	            @Override
@@ -59,6 +64,17 @@ public class CheckBoxList extends JList<JCheckBox> {
 		);
 		
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		enabled = true; // set enabled initially
+	}
+	
+	/**
+	 * This method enables/disables the object
+	 */
+	@Override
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+		super.setEnabled(enabled);
 	}
 	
 	/**
@@ -67,7 +83,14 @@ public class CheckBoxList extends JList<JCheckBox> {
 	 * @return int
 	 */	
 	public int getSelectedCount() {
-		return this.getModel().getSize();
+		int selectedCount = 0;
+		for (int i = 0; i < this.getModel().getSize(); i++) {
+			JCheckBox checkbox = (JCheckBox) getModel().getElementAt(i);
+			if (checkbox.isSelected()) {
+				selectedCount++;
+			}
+		}		
+		return selectedCount;
 	}
 
 	/**

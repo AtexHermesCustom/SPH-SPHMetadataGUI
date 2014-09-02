@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -138,6 +140,19 @@ public class MetadataPanel extends JPanel {
 			jCheckBoxSecondary = new JCheckBox();
 			jCheckBoxSecondary.setBounds(new Rectangle(526, 53, 21, 21));
 			jCheckBoxSecondary.setVisible(true);
+			jCheckBoxSecondary.addItemListener(new ItemListener() {
+	            @Override
+	            public void itemStateChanged(ItemEvent e) {
+	            	if (e.getStateChange() == ItemEvent.SELECTED) {
+	            		jScrollSecondary.setEnabled(true);
+	            		cbListSecondary.setEnabled(true);
+	            	}
+	            	else {
+	            		jScrollSecondary.setEnabled(false);
+	            		cbListSecondary.setEnabled(false);
+	            	}
+	            }
+	        });	
 		}
 		return jCheckBoxSecondary;
 	}	
@@ -237,36 +252,36 @@ public class MetadataPanel extends JPanel {
 		jLabel1111.setText("Exclusive");
 		jLabel1111.setFont(new Font("Dialog", Font.PLAIN, 14));
 		jLabelKeywordsMandatory = new JLabel();
-		jLabelKeywordsMandatory.setBounds(new Rectangle(38, 291, 153, 16));
+		jLabelKeywordsMandatory.setBounds(new Rectangle(38, 291, 368, 16));
 		jLabelKeywordsMandatory.setForeground(Color.red);
 		jLabelKeywordsMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelKeywordsMandatory.setText("<html>You can\'t leave this empty.</html>");
+		jLabelKeywordsMandatory.setText("");
 		jLabelKeywordsMandatory.setVerticalAlignment(SwingConstants.TOP);
 		jLabelKeywordsMandatory.setVerticalTextPosition(SwingConstants.TOP);
 		jLabelKeywordsMandatory.setVisible(true);
 		jLabelPriorityMandatory = new JLabel();
-		jLabelPriorityMandatory.setBounds(new Rectangle(37, 192, 153, 16));
+		jLabelPriorityMandatory.setBounds(new Rectangle(37, 192, 292, 16));
 		jLabelPriorityMandatory.setForeground(Color.red);
 		jLabelPriorityMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelPriorityMandatory.setText("<html>You can\'t leave this empty.</html>");
+		jLabelPriorityMandatory.setText("");
 		jLabelPriorityMandatory.setVerticalAlignment(SwingConstants.TOP);
 		jLabelPriorityMandatory.setVerticalTextPosition(SwingConstants.TOP);
 		jLabelPriorityMandatory.setVisible(true);
 		jLabelSecondaryMandatory = new JLabel();
-		jLabelSecondaryMandatory.setBounds(new Rectangle(437, 417, 143, 16));
+		jLabelSecondaryMandatory.setBounds(new Rectangle(437, 417, 259, 16));
 		jLabelSecondaryMandatory.setForeground(Color.red);
 		jLabelSecondaryMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelSecondaryMandatory.setText("<html>You can\'t leave this empty.</html>");
+		jLabelSecondaryMandatory.setText("");
 		jLabelSecondaryMandatory.setVerticalAlignment(SwingConstants.TOP);
 		jLabelSecondaryMandatory.setVerticalTextPosition(SwingConstants.TOP);
 		jLabelSecondaryMandatory.setVisible(true);
 		jLabelPrimaryMandatory = new JLabel();
-		jLabelPrimaryMandatory.setBounds(new Rectangle(37, 99, 146, 24));
+		jLabelPrimaryMandatory.setBounds(new Rectangle(37, 99, 292, 24));
 		jLabelPrimaryMandatory.setVerticalAlignment(SwingConstants.TOP);
 		jLabelPrimaryMandatory.setVerticalTextPosition(SwingConstants.TOP);
 		jLabelPrimaryMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
 		jLabelPrimaryMandatory.setForeground(Color.red);
-		jLabelPrimaryMandatory.setText("<html>You can't leave this empty.</html>");
+		jLabelPrimaryMandatory.setText("");
 		jLabelPrimaryMandatory.setVisible(true);
 		jLabelPri = new JLabel();
 		jLabelPri.setFont(new Font("Dialog", Font.PLAIN, 14));
@@ -387,8 +402,40 @@ public class MetadataPanel extends JPanel {
 	}
 	
 	public boolean isReady() {
-		// put any required validation here
-		return true;
+		/*
+		 * put any required validations here
+		 */
+		boolean isReady = true;
+		String requiredMsg = "<html>You cannot leave this empty.</html>";
+
+		jLabelPrimaryMandatory.setText("");
+		jLabelSecondaryMandatory.setText("");
+		jLabelKeywordsMandatory.setText("");
+		jLabelPriorityMandatory.setText("");
+
+		if (((String)jCmbPrimary.getSelectedItem()).trim().isEmpty() || jCmbPrimary.getSelectedIndex() < 0) {
+			jLabelPrimaryMandatory.setText(requiredMsg);
+			isReady = false;
+		}
+		
+		if (((String)jCmbPriority.getSelectedItem()).trim().isEmpty() || jCmbPriority.getSelectedIndex() < 0) {
+			jLabelPriorityMandatory.setText(requiredMsg);
+			isReady = false;
+		}
+		
+		if (! jTextFieldKeywords.getText().trim().matches("[A-Za-z0-9]+")) {
+			jLabelKeywordsMandatory.setText(requiredMsg);
+			isReady = false;
+		}
+		
+		if (jCheckBoxSecondary.isSelected()) {
+			if (cbListSecondary.getSelectedCount() <= 0) {
+				jLabelSecondaryMandatory.setText(requiredMsg);
+				isReady = false;
+			}
+		}
+		
+		return isReady;
 	}	
 	
 	public HashMap<String,String> GetMetadataValues() 

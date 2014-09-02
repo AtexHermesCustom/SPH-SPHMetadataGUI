@@ -8,6 +8,7 @@ honeydew
 longan
 lychee
 mango
+mangosteen
 melon
 orange
 papaya
@@ -15,4 +16,3 @@ pear
 soursop
 strawberry
 watermelon
-mangosteen

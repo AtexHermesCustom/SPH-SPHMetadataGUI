@@ -423,7 +423,7 @@ public class MetadataPanel extends JPanel {
 			isReady = false;
 		}
 		
-		if (! jTextFieldKeywords.getText().trim().matches("[A-Za-z0-9]+")) {
+		if (! jTextFieldKeywords.getText().trim().matches(".*[A-Za-z0-9]+.*")) {
 			jLabelKeywordsMandatory.setText(requiredMsg);
 			isReady = false;
 		}

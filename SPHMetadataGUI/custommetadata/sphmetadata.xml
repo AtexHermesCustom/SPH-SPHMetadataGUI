@@ -538,23 +538,17 @@
 	 -->	
 	<print>
 		<metadataNames>
-			<webcat1>ST</webcat1>
-			<webcat2>SUNTIMES</webcat2>
-			<webcat3>LIFE</webcat3>
-			<webcat4>LIFESTYLE</webcat4>
-			<webcat5>OTHERS</webcat5>
-			<mywebcat>MYP</mywebcat>
-			<digwebcat>DIGITALLIFE</digwebcat>
-			<urbwebcat>URBAN</urbwebcat>
-			<mybwebcat>MYB</mybwebcat>
+			<primarycat>PRIMARYCAT</primarycat>
+			<hassecondarycat>SECONDARY</hassecondarycat>
+			<secondarycat>SECONDARYCAT</secondarycat>
 			<priority>PRIORITY</priority>
-			<webcata>WEBCATA</webcata>
+			<exclusive>EXCLUSIVE</exclusive>
+			<hyperlink>HYPERLINK</hyperlink>
+			<keywords>KEYWORDS</keywords>
 			<sub>SUB</sub>
-			<checker>CHECKER</checker>
-			<numResub>NO_OF_RESUBS</numResub>
-			<resubReason>REASONS_FOR_RESUBS</resubReason>
 		</metadataNames>	
-		<webcat1 insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<keywords file="C:/GitRepos/SPH/SPHMetadataGUI/SPHMetadataGUI/custommetadata/keywords.txt"/>
+		<primarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
 			<item>TOPOFTHENEWS</item> 
 			<item>ASIA</item> 
 			<item>SEASIA</item> 
@@ -571,129 +565,16 @@
 			<item>OPINOTHER</item> 
 			<item>SCIENCE</item> 
 			<item>INSIGHT</item> 
-		</webcat1>
-		<webcat2 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>SUNHOME</item>
-			<item>SUNWORLD</item>
-			<item>INVEST</item>
-			<item>THINK</item>
-			<item>SUNSPORT</item>
-		</webcat2>
-		<webcat3 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>ARTS</item>
-			<item>BOOKS</item>
-			<item>BUZZ</item>
-			<item>COLUMNS</item>
-			<item>DESIGN</item>
-			<item>FASHION</item>
-			<item>GARDENING</item>
-			<item>MAILBAG</item>
-			<item>MOTORING</item>
-			<item>MOVIES</item>
-			<item>MUSIC</item>
-			<item>NEWS</item>
-			<item>PEOPLE</item>
-			<item>PETS</item>
-			<item>TELEVISION</item>
-			<item>TRAVEL</item>
-			<item>OTHERS</item>
-		</webcat3>
-		<webcat4 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>LIVE</item>
-			<item>CONNECT</item>
-			<item>GO</item>
-			<item>REFLECT</item>
-			<item>RELAX</item>
-			<item>READ</item>
-			<item>TASTE</item>
-		</webcat4>
-		<webcat5 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>DLWORK</item>
-			<item>DLPLAY</item>
-			<item>DLTEST</item>
-			<item>DLDIY</item>
-			<item>DLGAMES</item>
-			<item>DLINTER</item>
-			<item>DLTECH</item>
-			<item>DLHELP</item>
-			<item>DLTECH</item>
-			<item>DLPLAYERS</item>
-			<item>DLGEAR</item>
-			<item>DLSP</item>
-			<item>DOT</item>
-			<item>IN</item>
-			<item>MYBKNOW</item>
-			<item>MYBLIVING</item>
-			<item>MYBHEALTH</item>
-			<item>MYBFEATURES</item>
-			<item>URBFEAT</item>
-			<item>URBLIFE</item>
-			<item>URBSHOP</item>
-			<item>NOTFORWEB</item>
-		</webcat5>
-		<mywebcat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>News</item>
-			<item>Views</item>
-			<item>My Executive</item>
-			<item>Style</item>
-			<item>Showbiz</item>
-			<item>Eats</item>
-			<item>Shop</item>
-			<item>Journeys</item>
-			<item>Parenting</item>
-			<item>Active</item>
-			<item>Advance</item>
-			<item>Technology</item>
-			<item>Specials</item>		
-		</mywebcat>
-		<digwebcat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>DL_COMMENTARY</item>
-			<item>DL_NEWS</item>
-			<item>DL_SPOTLIGHT</item>
-			<item>DL_NEWPRODUCTS</item>
-			<item>DL_SMETECH</item>
-			<item>DL_WHATSIN</item>
-			<item>DL_GAMING</item>
-			<item>DL_PHONES</item>
-			<item>DL_PC</item>
-			<item>DL_PRINTERS</item>
-			<item>DL_SPORTS</item>
-			<item>DL_CARTECH</item>
-			<item>DL_SMARTHOME</item>		
-			<item>DL_AUDIO</item>		
-			<item>DL_TABLETS</item>		
-			<item>DL_WEARABLES</item>		
-			<item>DL_APPS</item>		
-		</digwebcat>
-		<urbwebcat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>URB_BEAUTYFLASH</item>
-			<item>URB_SPLURGEORSAVE</item>
-			<item>URB_BEAUTYSECRETS</item>
-			<item>URB_FASHFLASH</item>
-			<item>URB_ASKURBAN</item>
-			<item>URB_STYLEWATCH</item>
-			<item>URB_THEBAGPAGE</item>
-			<item>URB_FEATURES</item>
-		</urbwebcat>
-		<mybwebcat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>MYB_EDSNOTE</item>
-			<item>MYB_HEALTHDIARY</item>
-			<item>MYB_CONTEST</item>
-			<item>MYB_DOCTALK</item>
-			<item>MYB_COVERSTORY</item>
-			<item>MYB_ASKTHEEXPERTS</item>
-			<item>MYB_FIT_FAB</item>
-			<item>MYB_GETPHYSICAL</item>
-			<item>MYB_HEALTHYSPACES</item>
-			<item>MYB_HERBALHELP</item>
-			<item>MYB_EATRIGHT</item>
-			<item>MYB_EATTOLIVE</item>
-			<item>MYB_THEPRO</item>
-			<item>MYB_LIVING</item>
-			<item>MYB_FEATURE</item>
-			<item>MYB_CAPSULES</item>
-			<item>MYB_WIN</item>
-		</mybwebcat>
+		</primarycat>
+		<secondarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>BASKETBALL</item> 
+			<item>FOOTBALL</item> 
+			<item>TENNIS</item> 
+			<item>BADMINTON</item> 
+			<item>VOLLEYBALL</item> 
+			<item>CYCLING</item> 
+			<item>ARCHERY</item> 
+		</secondarycat>		
 		<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
 			<item>1</item>
 			<item>2</item>
@@ -707,146 +588,24 @@
 			<item>10</item>		
 		</priority>
 		<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
-		<item>ADELINEC</item>
+			<item>ADELINEC</item>
+			<item>ADEWONG</item>
+			<item>AHYOKE</item>
+			<item>ANDRETEH</item>
+			<item>ANDREW</item>
+			<item>ANN</item>
+			<item>ANKITAV</item>
+			<item>ANTHONYP</item>
+			<item>BOONLAI</item>
+			<item>CAROLGAN</item>
+			<item>CHENGWEE</item>
+			<item>CHNGKEG</item>
+			<item>CHUAN</item>
+			<item>CLARAC</item>
+			<item>CONNIEER</item>
+			<item>CPERALTA</item>
+			<item>DANIELW</item>			
 		</sub>
-		<checker insertEmptyItem="1" selectFirstItemAsDefault="1">
-		<item>ADEWONG</item>
-		<item>AHYOKE</item>
-		<item>ANDRETEH</item>
-		<item>ANDREW</item>
-		<item>ANN</item>
-		<item>ANKITAV</item>
-		<item>ANTHONYP</item>
-		<item>BOONLAI</item>
-		<item>CAROLGAN</item>
-		<item>CHENGWEE</item>
-		<item>CHNGKEG</item>
-		<item>CHUAN</item>
-		<item>CLARAC</item>
-		<item>CONNIEER</item>
-		<item>CPERALTA</item>
-		<item>DANIELW</item>
-		<item>DENNIS</item>
-		<item>DMCMAHON</item>
-		<item>ELWIN</item>
-		<item>ETAN</item>
-		<item>GEOFFP</item>
-		<item>GORDON</item>
-		<item>GRACES</item>
-		<item>HAFIZ</item>
-		<item>HALIFAH</item>
-		<item>HANKEONG</item>
-		<item>HAYATI</item>
-		<item>HUNCHING</item>
-		<item>IANLIM</item>
-		<item>IGNATIUS</item>
-		<item>IRENEANG</item>
-		<item>JACKHEE</item>
-		<item>JANET</item>
-		<item>JANICE</item>
-		<item>JANNIM</item>
-		<item>JEFFANG</item>
-		<item>JGREEN</item>
-		<item>JJQUEK</item>
-		<item>JOANNA</item>
-		<item>JOMAR</item>
-		<item>JOSEPHS</item>
-		<item>JOYCETEO</item>
-		<item>JTURNER</item>
-		<item>JULIEK</item>
-		<item>KAICHAI</item>
-		<item>KELVINLW</item>
-		<item>KENCHEW</item>
-		<item>KENGFATT</item>
-		<item>KENGYAO</item>
-		<item>KHIM</item>
-		<item>KIMHOH</item>
-		<item>LAYTEEN</item>
-		<item>LELA</item>
-		<item>LIMZE</item>
-		<item>LINXINYI</item>
-		<item>MFENN</item>
-		<item>MAGLUM</item>
-		<item>MAGPIE</item>
-		<item>MARCELP</item>
-		<item>MARKCHAN</item>
-		<item>MDNIZAM</item>
-		<item>MERLENE</item>
-		<item>MUIHOON</item>
-		<item>MUNSAN</item>
-		<item>NANKOH</item>
-		<item>NGSLS</item>
-		<item>NKATRINA</item>
-		<item>NIRMAL</item>
-		<item>OOIH</item>
-		<item>ONGYIERN</item>
-		<item>PAMELAJC</item>
-		<item>PATRICKJ</item>
-		<item>PATWEE</item>
-		<item>PAULAM</item>
-		<item>PAULC</item>
-		<item>PETERWIL</item>
-		<item>PIKYEE</item>
-		<item>ROBGREGG</item>
-		<item>PONEIL</item>
-		<item>PSIOW</item>
-		<item>RDANCEL</item>
-		<item>RIANA</item>
-		<item>RHODA</item>
-		<item>SAMS</item>
-		<item>SANTOSH</item>
-		<item>SCFONG</item>
-		<item>SEAHL</item>
-		<item>SEOKHWAI</item>
-		<item>SERL</item>
-		<item>SINSH</item>
-		<item>SIONG</item>
-		<item>SORFERN</item>
-		<item>SOKPENG</item>
-		<item>SSYU</item>
-		<item>STANHO</item>
-		<item>STEVEN</item>
-		<item>SUJINT</item>
-		<item>SUK</item>
-		<item>SUMIKO</item>
-		<item>SURENDA</item>
-		<item>SUZANNE</item>
-		<item>SW</item>
-		<item>TRAJAN</item>
-		<item>TONGMC</item>
-		<item>VELLOOR</item>
-		<item>VICNG</item>
-		<item>WAIKHIM</item>
-		<item>WAIWAN</item>
-		<item>WENGKIN</item>
-		<item>WHOCK</item>
-		<item>WOEIWAN</item>
-		<item>WYCIN</item>
-		<item>XIUHUIL</item>
-		<item>YEOKCG</item>
-		<item>YEEHWA</item>
-		<item>YOKETENG</item>
-		<item>YONGHM</item>
-		<item>YONGMIN</item>
-		<item>YUEYUN</item>
-		<item>YUJIN</item>
-		<item>YULIN</item>
-		<item>YUENC</item>
-		<item>ZACH</item>
-		<item>ZILIANG</item>
-		</checker>
-		<numResub insertEmptyItem="1" selectFirstItemAsDefault="1">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-		<item>9</item>
-		<item>10</item>
-		</numResub>		
 	</print>
 	
 		<!--

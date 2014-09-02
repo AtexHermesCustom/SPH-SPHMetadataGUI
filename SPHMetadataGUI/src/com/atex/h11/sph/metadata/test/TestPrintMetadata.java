@@ -25,10 +25,12 @@ public class TestPrintMetadata {
 		
 		// sample metadata
 		metadata.put("PRIMARYCAT", "Top Stories");
-		metadata.put("SECONDARYCAT", "none");
 		metadata.put("SECONDARY", "true");
+		metadata.put("SECONDARYCAT", "none");
 		metadata.put("PRIORITY", "1");
-		metadata.put("PREMIUM", "true");
+		metadata.put("EXCLUSIVE", "true");
+		metadata.put("HYPERLINK", "www.sph.com");
+		metadata.put("KEYWORDS", "apple,orange,banana,grape,papaya");
 		metadata.put("SUB", "sub 3");
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -918,6 +918,11 @@ public class MetadataPanel extends JPanel {
 
 		return retMetadata;
 	}
+	
+	public boolean isReady() {
+		// put any required validation here
+		return true;
+	}
 
 	/**
 	 * This method initializes jChkOnlineWire	

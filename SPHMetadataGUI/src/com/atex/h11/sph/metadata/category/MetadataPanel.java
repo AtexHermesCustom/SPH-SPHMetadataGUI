@@ -218,6 +218,11 @@ public class MetadataPanel extends JPanel {
 		jRadNegativeSentiment.setSelected(metadata.get(config.GetMetadataName("sentiment")).equalsIgnoreCase("Negative"));
 	}
 	
+	public boolean isReady() {
+		// put any required validation here
+		return true;
+	}	
+	
 	public HashMap<String,String> GetMetadataValues() 
 			throws XPathExpressionException {
 		HashMap<String,String> retMetadata = new HashMap<String,String>();

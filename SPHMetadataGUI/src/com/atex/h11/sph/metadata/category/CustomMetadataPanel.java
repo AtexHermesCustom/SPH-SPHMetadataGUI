@@ -200,8 +200,7 @@ public class CustomMetadataPanel implements ICustomMetadataPanel {
 		
 	private boolean isReady() {
 		logger.entering(this.getClass().getSimpleName(), "isReady");
-		boolean result = true;
-		// to do: any validation?
+		boolean result = metadataPanel.isReady();
 		logger.exiting(this.getClass().getSimpleName(), "isReady");
 		return result;
 	}	

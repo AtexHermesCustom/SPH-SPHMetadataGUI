@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import java.awt.Rectangle;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
@@ -36,9 +40,11 @@ public class MetadataPanel extends JPanel {
 	private ConfigModel config = null;
 	private HashMap<String, String> metadata = null;
 	
+	private String keywordsFile = null;
 	private List<String> keywords = null;
 	private Autocomplete autoComplete = null;
 	private final String COMMIT_ACTION = "commit";
+	private final String DELIMITER = ",";
 	
 	private JLabel jLabel112 = null;
 	private JComboBox<String> jCmbPrimary = null;
@@ -47,19 +53,14 @@ public class MetadataPanel extends JPanel {
 	private JComboBox<String> jCmbSub = null;
 	private JLabel jLabel111 = null;
 	private JScrollPane jScrollSecondary = null;
-	private CheckBoxList cbListCoAuthor = null;
 	private CheckBoxList cbListSecondary;
 	private JLabel jLabel1 = null;
 	private JLabel jLabelKeywords = null;
 	private JLabel jLabelPri = null;
 	private JTextField jTextFieldKeywords = null;
-	private JLabel jLabelMandate = null;
 	private JLabel jLabelPrimaryMandatory;
-	private JLabel jLabelMandate1 = null;
 	private JLabel jLabelSecondaryMandatory;
-	private JLabel jLabelMandate12 = null;
 	private JLabel jLabelPriorityMandatory;
-	private JLabel jLabelMandate13 = null;
 	private JLabel jLabelKeywordsMandatory;
 	private JLabel jLabel1111 = null;
 	private JCheckBox jCheckBoxExclusive = null;
@@ -326,23 +327,24 @@ public class MetadataPanel extends JPanel {
 
 		
 		// for keywords autocomplete
+		keywordsFile = config.GetAttribValue("keywords", "file");
 		initAutoComplete();
 	}
 	
 	private void initAutoComplete() 
 			throws FileNotFoundException, XPathExpressionException {
 		// read keywords from file
-		Scanner scanner = new Scanner(new File(config.GetAttribValue("keywords", "file")));
+		Scanner scanner = new Scanner(new File(keywordsFile));
 		keywords = new ArrayList<String>();
 		while (scanner.hasNext()) {
 			String s = scanner.next();
 			//System.out.println("added keyword: " + s);
-			keywords.add(s);			
+			keywords.add(s.toLowerCase());	// case-insensitive			
 		}
 		scanner.close();		
 		
 		// autocomplete listener
-		autoComplete = new Autocomplete(getJTextFieldKeywords(), keywords);
+		autoComplete = new Autocomplete(getJTextFieldKeywords(), keywords, DELIMITER);
 		getJTextFieldKeywords().getDocument().addDocumentListener(autoComplete);
 		
 		// text field commit action
@@ -350,10 +352,6 @@ public class MetadataPanel extends JPanel {
 		getJTextFieldKeywords().getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());			
 	}
 	
-	private void SaveKeywords() {	
-		
-	}
-
 	private void SetComponentValues() 
 			throws XPathExpressionException {
 		
@@ -394,12 +392,14 @@ public class MetadataPanel extends JPanel {
 	}	
 	
 	public HashMap<String,String> GetMetadataValues() 
-			throws XPathExpressionException {
+			throws XPathExpressionException, IOException {
 		HashMap<String,String> retMetadata = new HashMap<String,String>();
 
 		// radio/check boxes
 		// Text area
-		retMetadata.put(config.GetMetadataName("keywords"), jTextFieldKeywords.getText());
+		String keywordsList = jTextFieldKeywords.getText();
+		keywordsList = keywordsList.replaceAll(",*$", ""); 	// replace ending comma
+		retMetadata.put(config.GetMetadataName("keywords"), keywordsList);
 		retMetadata.put(config.GetMetadataName("hyperlink"), jTextFieldURL.getText());	
 		// combo boxes
 		retMetadata.put(config.GetMetadataName("primarycat"), (String) jCmbPrimary.getSelectedItem());
@@ -408,20 +408,16 @@ public class MetadataPanel extends JPanel {
 		retMetadata.put(config.GetMetadataName("sub"), (String) jCmbSub.getSelectedItem());
 		// checkbox lists
 	    retMetadata.put(config.GetMetadataName("secondarycat"), swapFunction(cbListSecondary.getSelectedListString()));
-		
 		// checkbox
 	    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
 	    retMetadata.put(config.GetMetadataName("hassecondarycat"), jCheckBoxSecondary.isSelected() ? Constants.TRUE : Constants.FALSE);
 	    
+	    // update the keywords list file
+	    SaveKeywords(keywordsList);
+	    
 		return retMetadata;
 	}
 	
-/* -- new methods here  */	
-	
-    public void run() {
-    	
-    }
-
 	public String swapFunction(String a) {
 		  String webcat = a;
 		  // change to upper case
@@ -436,10 +432,31 @@ public class MetadataPanel extends JPanel {
 		  webcat = webcat.replaceAll("WEEKLY-","");		  
 		  webcat = webcat.replaceAll("LIFESTYLE-","");
 		  webcat = webcat.replaceAll("FOCUS-","");
-	      
 	      return webcat;
 	}
-  
+
+	private void SaveKeywords(String keywordsList) 
+			throws IOException {	
+		// include newly entered keywords to the list
+		StringTokenizer tokenizer = new StringTokenizer(keywordsList, DELIMITER);
+		while (tokenizer.hasMoreTokens()) {
+			String s = tokenizer.nextToken();
+			s = s.trim();
+			s = s.toLowerCase();	// case-insensitive
+			if (! keywords.contains(s)) {
+				keywords.add(s);
+			}
+		}
+		
+		// save keywords to the file
+        FileWriter outFile = new FileWriter(keywordsFile);  
+        BufferedWriter outStream = new BufferedWriter(outFile);  
+        for (String s : keywords) {
+            outStream.write(s + "\n");  	
+        }
+        outStream.close();  
+	}
+	
 }  //  @jve:decl-index=0:visual-constraint="-32,-1"
 
 

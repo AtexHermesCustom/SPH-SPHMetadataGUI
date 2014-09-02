@@ -13,7 +13,6 @@ import javax.swing.text.BadLocationException;
 
 public class Autocomplete implements DocumentListener {
 
-	private static final String delimiter = ","; 
 	private static enum Mode {
 		INSERT,
 		COMPLETION
@@ -22,9 +21,11 @@ public class Autocomplete implements DocumentListener {
 	private JTextField textField;
 	private final List<String> keywords;
 	private Mode mode = Mode.INSERT;
+	private String delimiter = ","; 
 
-	public Autocomplete(JTextField textField, List<String> keywords) {
+	public Autocomplete(JTextField textField, List<String> keywords, String delimiter) {
 		this.textField = textField;
+		this.delimiter = delimiter;
 		this.keywords = keywords;
 		Collections.sort(keywords);
 	}

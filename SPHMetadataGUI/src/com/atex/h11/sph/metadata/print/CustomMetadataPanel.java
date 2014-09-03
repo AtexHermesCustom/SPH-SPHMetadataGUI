@@ -1,4 +1,4 @@
-package com.atex.h11.sph.metadata.productivity;
+package com.atex.h11.sph.metadata.print;
 
 import com.unisys.media.commonservices.common.location.LocationInfo;
 import com.unisys.media.commonservices.dialogs.metadata.custom.NodeValueInspector;
@@ -18,6 +18,7 @@ import java.util.logging.SimpleFormatter;
 import com.atex.h11.sph.metadata.common.ConfigModel;
 import com.atex.h11.sph.metadata.common.Constants;
 import com.atex.h11.sph.metadata.common.InfoBox;
+
 
 public class CustomMetadataPanel implements ICustomMetadataPanel {
 	private ResourceBundle bundle;
@@ -54,7 +55,7 @@ public class CustomMetadataPanel implements ICustomMetadataPanel {
 	private void initialize() {
 		try {
 		    // Configuration file
-		    config = new ConfigModel("productivity");	// pass the metadata group
+		    config = new ConfigModel("print");	// pass the metadata group
 			
 			Level logLevel = Level.parse(config.GetConfigValue("logLevel"));	    
 		    
@@ -74,7 +75,7 @@ public class CustomMetadataPanel implements ICustomMetadataPanel {
 			}
 		    
 		    // log level
-			logger.setLevel(Level.parse(config.GetConfigValue("logLevel")));		
+			logger.setLevel(Level.parse(config.GetConfigValue("logLevel")));	
 		}
 		catch (Exception e) {
 			logger.log(Level.SEVERE, "Error encountered", e);

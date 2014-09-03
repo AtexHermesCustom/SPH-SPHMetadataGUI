@@ -12,11 +12,13 @@ import javax.swing.border.EmptyBorder;
 
 public class CheckBoxList extends JList<JCheckBox> {
 	private static final long serialVersionUID = 1L;
+	private boolean enabled;
 	protected static Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);
 
 	/**
 	 * This method initializes CheckBoxList	
 	 * 	
+	 * @param none
 	 * @return com.atex.h11.sph.metadata.component.CheckBoxList
 	 */	
 	public CheckBoxList() {
@@ -26,11 +28,13 @@ public class CheckBoxList extends JList<JCheckBox> {
 			new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
-					int index = locationToIndex(e.getPoint());
-					if (index != -1) {
-						JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
-						checkbox.setSelected(! checkbox.isSelected());
-						repaint();
+					if (enabled) {
+						int index = locationToIndex(e.getPoint());
+						if (index != -1) {
+							JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
+							checkbox.setSelected(! checkbox.isSelected());
+							repaint();
+						}
 					}
 	            }
 			}
@@ -40,14 +44,16 @@ public class CheckBoxList extends JList<JCheckBox> {
 			new KeyListener() {
 	            @Override
 	            public void keyPressed(KeyEvent e) {
-	                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-	                    int index = getSelectedIndex();
-						if (index != -1) {
-							JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
-							checkbox.setSelected(! checkbox.isSelected());
-							repaint();
-						}
-	                }
+	            	if (enabled) {
+		                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+		                    int index = getSelectedIndex();
+							if (index != -1) {
+								JCheckBox checkbox = (JCheckBox) getModel().getElementAt(index);
+								checkbox.setSelected(! checkbox.isSelected());
+								repaint();
+							}
+		                }
+	            	}
 	            }
 
 	            @Override
@@ -59,11 +65,43 @@ public class CheckBoxList extends JList<JCheckBox> {
 		);
 		
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		enabled = true; // set enabled initially
+	}
+	
+	/**
+	 * This method enables/disables the object
+	 * 
+	 * @param none
+	 * @return none
+	 */
+	@Override
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+		super.setEnabled(enabled);
+	}
+	
+	/**
+	 * This method returns the number of selected items
+	 * 	
+	 * @param none
+	 * @return int
+	 */	
+	public int getSelectedCount() {
+		int selectedCount = 0;
+		for (int i = 0; i < this.getModel().getSize(); i++) {
+			JCheckBox checkbox = (JCheckBox) getModel().getElementAt(i);
+			if (checkbox.isSelected()) {
+				selectedCount++;
+			}
+		}		
+		return selectedCount;
 	}
 
 	/**
 	 * This method returns an ArrayList of selected items
 	 * 	
+	 * @param none
 	 * @return ArrayList<String>	
 	 */	
 	public ArrayList<String> getSelectedList() {
@@ -79,7 +117,8 @@ public class CheckBoxList extends JList<JCheckBox> {
 	
 	/**
 	 * This method returns a comma-separated string of the selected items	
-	 * 	
+	 * 
+	 * @param none	
 	 * @return String
 	 */	
 	public String getSelectedListString() {
@@ -116,6 +155,20 @@ public class CheckBoxList extends JList<JCheckBox> {
 		}
 		repaint();	// needed
 	}
+	
+	/**
+	 * This method deselects all items in the list
+	 * 	
+	 * @param none
+	 * @return none
+	 */	
+	public void deselectAll() {
+		for (int i = 0; i < this.getModel().getSize(); i++) {
+			JCheckBox checkbox = (JCheckBox) this.getModel().getElementAt(i);
+			checkbox.setSelected(false);
+		}
+		//repaint(); // needed
+	}	
 	
 	/**
 	 * This method sets the selected items given a comma-separated string	

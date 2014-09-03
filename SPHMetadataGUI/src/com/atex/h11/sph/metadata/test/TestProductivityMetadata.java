@@ -27,30 +27,32 @@ public class TestProductivityMetadata {
 		
 		// sample metadata
 		metadata.put("NEWS_EVENT", "News Event: the quick brown fox jumped");
-		metadata.put("REASONS_FOR_RESUBS", "This is the reason for the resub");
+//		metadata.put("REASONS_FOR_RESUBS", "This is the reason for the resub");
 		metadata.put("PRINT_DIARY", Constants.FALSE);
 		metadata.put("PRINT_OWN", Constants.FALSE);
 		metadata.put("PRINT_COMMENTARY", Constants.FALSE);
 		metadata.put("PRINT_FEATURE", Constants.FALSE);
 		metadata.put("PRINT_SIDEBAR", Constants.FALSE);
-		metadata.put("PRINT_INFOGRAPHICS", Constants.FALSE);
+		metadata.put("PRINT_INFOGRAPHICS", Constants.TRUE);
 		metadata.put("PRINT_WIRE", Constants.FALSE);
-		metadata.put("ONLINE_DIARY", Constants.TRUE);
+		metadata.put("PRINT_CONTRIBUTION", Constants.TRUE);
+		metadata.put("ONLINE_DIARY", Constants.FALSE);
 		metadata.put("ONLINE_OWN", Constants.FALSE);
-		metadata.put("ONLINE_TWEETS", Constants.TRUE);
+		metadata.put("ONLINE_TWEETS", Constants.FALSE);
 		metadata.put("ONLINE_FIRST_PHOTOS", Constants.FALSE);
-		metadata.put("ONLINE_FIRST_VIDEOS", Constants.TRUE);
+		metadata.put("ONLINE_FIRST_VIDEOS", Constants.FALSE);
 		metadata.put("ONLINE_VIDEO_PACKAGE", Constants.FALSE);
-		metadata.put("ONLINE_BLOG", Constants.TRUE);
+		metadata.put("ONLINE_BLOG", Constants.FALSE);
+		metadata.put("ONLINE_WIRE", Constants.FALSE);
 		metadata.put("COAUTHOR", "co Author 2,co Author 6");
 		metadata.put("ADDITIONAL_REPORTING", "addl Report 2,addl Report 6");
 		metadata.put("COPYRIGHT", "copyright a");
-		metadata.put("SUB", "sub 3");
-		metadata.put("CHECKER", "checker c");
-		metadata.put("NO_OF_RESUBS", "num resub 1");
-		metadata.put("PRIORITY", "priority ii");
-		metadata.put("WEB_CAT1", "web cat 1 - a");
-		metadata.put("WEB_CAT2", "web cat 2 - c");
+//		metadata.put("SUB", "sub 3");
+//		metadata.put("CHECKER", "checker c");
+//		metadata.put("NO_OF_RESUBS", "num resub 1");
+//		metadata.put("PRIORITY", "priority ii");
+//		metadata.put("WEB_CAT1", "web cat 1 - a");
+//		metadata.put("WEB_CAT2", "web cat 2 - c");
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		

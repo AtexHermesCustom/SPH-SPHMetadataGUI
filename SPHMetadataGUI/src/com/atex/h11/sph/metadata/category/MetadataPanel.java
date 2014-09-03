@@ -10,9 +10,9 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+
 import javax.swing.JScrollPane;
 import com.atex.h11.sph.metadata.component.CheckBoxList;
-import javax.swing.JComboBox;
 import javax.xml.xpath.XPathExpressionException;
 import com.atex.h11.sph.metadata.common.ConfigModel;
 
@@ -33,6 +33,7 @@ public class MetadataPanel extends JPanel {
 	private JScrollPane jScrollSectors = null;
 	private JScrollPane jScrollIndustries = null;
 	private JLabel jLabel1111 = null;
+	private JRadioButton jRadNeutralSentiment = null;
 	/**
 	 * This method initializes jScrollSectors	
 	 * 	
@@ -46,7 +47,7 @@ public class MetadataPanel extends JPanel {
 			cbListSectors = new CheckBoxList();
 			cbListSectors.setModel(listModel);
 			jScrollSectors = new JScrollPane(cbListSectors);
-			jScrollSectors.setBounds(new Rectangle(17, 34, 300, 252));
+			jScrollSectors.setBounds(new Rectangle(17, 34, 300, 289));
 			jScrollSectors.setFont(new Font("Dialog", Font.PLAIN, 12));
 			return jScrollSectors;
 		}
@@ -66,7 +67,7 @@ public class MetadataPanel extends JPanel {
 			cbListIndustries = new CheckBoxList();
 			cbListIndustries.setModel(listModel);
 			jScrollIndustries = new JScrollPane(cbListIndustries);
-			jScrollIndustries.setBounds(new Rectangle(332, 33, 300, 252));
+			jScrollIndustries.setBounds(new Rectangle(332, 33, 300, 291));
 			jScrollIndustries.setFont(new Font("Dialog", Font.PLAIN, 12));
 			return jScrollIndustries;
 		}
@@ -81,10 +82,26 @@ public class MetadataPanel extends JPanel {
 	private JTextField getJTextKeywords() {
 		if (jTextKeywords == null) {
 			jTextKeywords = new JTextField();
-			jTextKeywords.setBounds(new Rectangle(16, 322, 614, 23));
+			jTextKeywords.setBounds(new Rectangle(14, 422, 614, 23));
+			jTextKeywords.setVisible(false);
 		}
 		return jTextKeywords;
 	}
+	
+	/**
+	 * This method initializes jRadNeutralSentiment	
+	 * 	
+	 * @return javax.swing.JRadioButton	
+	 */
+	private JRadioButton getJRadNeutralSentiment() {
+		if (jRadNeutralSentiment == null) {
+			jRadNeutralSentiment = new JRadioButton();
+			jRadNeutralSentiment.setBounds(new Rectangle(15, 397, 68, 24));
+			jRadNeutralSentiment.setText("Neutral");
+			jRadNeutralSentiment.setFont(new Font("Dialog", Font.PLAIN, 12));
+		}
+		return jRadNeutralSentiment;
+	}	
 
 	/**
 	 * This method initializes jRadPositiveSentiment	
@@ -94,7 +111,7 @@ public class MetadataPanel extends JPanel {
 	private JRadioButton getJRadPositiveSentiment() {
 		if (jRadPositiveSentiment == null) {
 			jRadPositiveSentiment = new JRadioButton();
-			jRadPositiveSentiment.setBounds(new Rectangle(23, 376, 89, 26));
+			jRadPositiveSentiment.setBounds(new Rectangle(114, 397, 89, 24));
 			jRadPositiveSentiment.setFont(new Font("Dialog", Font.PLAIN, 12));
 			jRadPositiveSentiment.setText("Positive");
 		}
@@ -109,7 +126,7 @@ public class MetadataPanel extends JPanel {
 	private JRadioButton getJRadNegativeSentiment() {
 		if (jRadNegativeSentiment == null) {
 			jRadNegativeSentiment = new JRadioButton();
-			jRadNegativeSentiment.setBounds(new Rectangle(134, 376, 97, 28));
+			jRadNegativeSentiment.setBounds(new Rectangle(216, 397, 96, 24));
 			jRadNegativeSentiment.setFont(new Font("Dialog", Font.PLAIN, 12));
 			jRadNegativeSentiment.setText("Negative");
 		}
@@ -143,15 +160,17 @@ public class MetadataPanel extends JPanel {
 		this.setSize(720, 470);
 
 		jLabel1111 = new JLabel();
-		jLabel1111.setBounds(new Rectangle(79, 298, 227, 16));
+		jLabel1111.setBounds(new Rectangle(76, 449, 227, 16));
 		jLabel1111.setText("- separate keywords using commas");
 		jLabel1111.setFont(new Font("Dialog", Font.ITALIC, 11));		
+		jLabel1111.setVisible(false);
 		jLabel111 = new JLabel();
-		jLabel111.setBounds(new Rectangle(17, 298, 60, 16));
+		jLabel111.setBounds(new Rectangle(14, 449, 60, 16));
 		jLabel111.setFont(new Font("Dialog", Font.PLAIN, 12));
 		jLabel111.setText("Keywords");
+		jLabel111.setVisible(false);
 		jLabel11 = new JLabel();
-		jLabel11.setBounds(new Rectangle(16, 361, 99, 16));
+		jLabel11.setBounds(new Rectangle(14, 376, 99, 16));
 		jLabel11.setFont(new Font("Dialog", Font.PLAIN, 12));
 		jLabel11.setText("Sentiment");
 		jLabel1 = new JLabel();
@@ -172,12 +191,14 @@ public class MetadataPanel extends JPanel {
 		
         //Group the radio buttons.
         ButtonGroup radioButtonGroup = new ButtonGroup();
+        radioButtonGroup.add(getJRadNeutralSentiment());				
         radioButtonGroup.add(getJRadPositiveSentiment());
         radioButtonGroup.add(getJRadNegativeSentiment());				
 		this.add(getJRadPositiveSentiment(), null);
 		this.add(getJRadNegativeSentiment(), null);
+		this.add(getJRadNeutralSentiment(), null);
 		// check "Positive" initially
-		getJRadPositiveSentiment().setSelected(true);
+		getJRadNeutralSentiment().setSelected(true);
 		
 		// lists
 		this.add(getJScrollSectors(), null);
@@ -189,9 +210,15 @@ public class MetadataPanel extends JPanel {
 		cbListSectors.setSelectedFromListString(metadata.get(config.GetMetadataName("sectors")));
 		cbListIndustries.setSelectedFromListString(metadata.get(config.GetMetadataName("industries")));
 		jTextKeywords.setText(metadata.get(config.GetMetadataName("keywords")));
+		jRadNeutralSentiment.setSelected(metadata.get(config.GetMetadataName("sentiment")).equalsIgnoreCase("Neutral"));
 		jRadPositiveSentiment.setSelected(metadata.get(config.GetMetadataName("sentiment")).equalsIgnoreCase("Positive"));
 		jRadNegativeSentiment.setSelected(metadata.get(config.GetMetadataName("sentiment")).equalsIgnoreCase("Negative"));
 	}
+	
+	public boolean isReady() {
+		// put any required validation here
+		return true;
+	}	
 	
 	public HashMap<String,String> GetMetadataValues() 
 			throws XPathExpressionException {
@@ -214,11 +241,16 @@ public class MetadataPanel extends JPanel {
 	    retMetadata.put(config.GetMetadataName("keywords"), keywordList);
 		
 	    retMetadata.put(config.GetMetadataName("sentiment"), 
-	    	getJRadPositiveSentiment().isSelected() ? "Positive" : "Negative");
+		    	getJRadNeutralSentiment().isSelected() ? "Netural" : (getJRadPositiveSentiment().isSelected() ? "Positive" : "Negative"));
+
+	    //	    retMetadata.put(config.GetMetadataName("sentiment"), 
+//	    	getJRadPositiveSentiment().isSelected() ? "Positive" : "Negative");
 	    
 		// combo boxes
 		return retMetadata;
 	}
+
+
 
 	
 }  //  @jve:decl-index=0:visual-constraint="10,10"

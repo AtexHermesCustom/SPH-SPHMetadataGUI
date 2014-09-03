@@ -1,6 +1,11 @@
 package com.atex.h11.sph.metadata.common;
 
+import java.awt.Color;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
@@ -12,10 +17,12 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
+
 
 public class ConfigModel {
     private DocumentBuilderFactory dbf = null;
@@ -23,11 +30,12 @@ public class ConfigModel {
     private XPathFactory xpf = null;
     private XPath xp = null;    
     
+    private Properties props = null;
     private Document doc;
     private String metadataGroup = null;
     
     public ConfigModel(String group) 
-    		throws ParserConfigurationException, IOException, SAXException {
+    		throws ParserConfigurationException, IOException, SAXException, CustomException {
         // Prepare a document builder.
         dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
@@ -37,11 +45,29 @@ public class ConfigModel {
 		xpf = XPathFactory.newInstance();
 		xp = xpf.newXPath();        
 		
+		// load props file
+		props = loadProperties(new File(Constants.METADATA_PROPERTIES_FILE));
+		
+		String xmlConfFile = props.getProperty(Constants.METADATA_CONFIG_FILE_PROPERTY);
+		if (xmlConfFile == null || xmlConfFile.isEmpty()) {
+			throw new CustomException(Constants.METADATA_CONFIG_FILE_PROPERTY + " property cannot be found or is blank");
+		}
+		
 		// load xml config file
-		doc = db.parse(Constants.CONF_FILE);
+		doc = db.parse(xmlConfFile);
 		
 		this.metadataGroup = group;
     }
+    
+	protected Properties loadProperties(File propsFile) 
+			throws FileNotFoundException, IOException {
+		Properties p = new Properties();
+		FileInputStream in = null;
+		in = new FileInputStream(propsFile);
+		p.load(in);
+		in.close();
+		return p;
+	}    
   
     public String GetXpathValue(String xpath)
     		throws XPathExpressionException {
@@ -90,8 +116,14 @@ public class ConfigModel {
 		if (GetAttribValue(metadata, "selectFirstItemAsDefault").trim().equals("1")) {
 			cmbBox.setSelectedIndex(0);
 		}
+		
+		// select mandatory
+		if (GetAttribValue(metadata, "selectMandatory").trim().equals("1")) {
+			cmbBox.setBackground(Color.red);
+		}
+
 	}    
-    
+ 
     public DefaultListModel<JCheckBox> InitCheckBoxListModel(String metadata) 
 			throws XPathExpressionException {
 		NodeList nl = GetListItems(metadata);

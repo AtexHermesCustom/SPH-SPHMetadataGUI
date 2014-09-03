@@ -24,13 +24,17 @@ public class TestOnlineMetadata {
 		final HashMap<String, String> metadata = new HashMap<String, String>();
 		
 		// sample metadata
-		metadata.put("ST", "MASIA");
-		metadata.put("SUNTIMES", "SUNWORLD");
-		metadata.put("LIFE", "LIFEDESIGN");
-		metadata.put("LIFESTYLE", "PULSE");
-		metadata.put("OTHERS", "DLTECH");
-		metadata.put("MYP", "Showbiz");
-		metadata.put("PRIORITY", "2");
+		metadata.put("ST", "webcat1");
+		metadata.put("SUNTIMES", "webcat2");
+		metadata.put("LIFE", "webcat3");
+		metadata.put("LIFESTYLE", "webcat4");
+		metadata.put("OTHERS", "webcat5");
+		metadata.put("MYP", "webcat6");
+		metadata.put("DIGITALLIFE", "webcat7");
+		metadata.put("URBAN", "webcat8");
+		metadata.put("MYB", "catb");
+		metadata.put("COPYRIGHT", "copyright");
+
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		

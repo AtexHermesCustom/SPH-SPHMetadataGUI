@@ -20,10 +20,6 @@
 			<coAuthor>COAUTHOR</coAuthor>
 			<addlReport>ADDITIONAL_REPORTING</addlReport>
 			<copyright>COPYRIGHT</copyright>
-			<sub>SUB</sub>
-			<checker>CHECKER</checker>
-			<numResub>NO_OF_RESUBS</numResub>
-			<resubReason>REASONS_FOR_RESUBS</resubReason>
 			<printDiary>PRINT_DIARY</printDiary>
 			<printOwn>PRINT_OWN</printOwn>
 			<printCommentary>PRINT_COMMENTARY</printCommentary>
@@ -31,6 +27,8 @@
 			<printSidebar>PRINT_SIDEBAR</printSidebar>
 			<printInfographics>PRINT_INFOGRAPHICS</printInfographics>
 			<printWire>PRINT_WIRE</printWire>
+			<printWire1>PRINT_WIRE1</printWire1>
+			<printContribution>PRINT_CONTRIBUTION</printContribution>
 			<onlineDiary>ONLINE_DIARY</onlineDiary>
 			<onlineOwn>ONLINE_OWN</onlineOwn>
 			<onlineTweet>ONLINE_TWEETS</onlineTweet>
@@ -38,6 +36,7 @@
 			<onlineFirstVideo>ONLINE_FIRST_VIDEOS</onlineFirstVideo>
 			<onlineVideoPackage>ONLINE_VIDEO_PACKAGE</onlineVideoPackage>
 			<onlineBlog>ONLINE_BLOG</onlineBlog>
+			<onlineWire>ONLINE_WIRE</onlineWire>
 		</metadataNames>
 		<coAuthor insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>AAQILAH</item>
@@ -55,6 +54,7 @@
 		<item>AWCW</item>        
 		<item>AYIYING</item>
 		<item>BRYNASIM</item>
+		<item>BOONLAI</item>
 		<item>CAIWJ</item>  
 		<item>CASSLIM</item>
 		<item>CHARYONG</item>
@@ -76,7 +76,8 @@
 		<item>FABKOH</item> 
 		<item>FEIMOK</item> 
 		<item>FIOCHAN</item>
-		<item>GAVIN</item>  
+		<item>GAVIN</item>
+		<item>GNIRMALA</item>  
 		<item>GOYSHIYI</item>
 		<item>GURVEENK</item>
 		<item>HANQING</item>
@@ -86,6 +87,7 @@
 		<item>JALMSAB</item>
 		<item>JANICEH</item>
 		<item>JANTAI</item> 
+		<item>JEREMYAU</item>
 		<item>JERMYNC</item>
 		<item>JIANXUAN</item>
 		<item>JIEMIN</item> 
@@ -102,7 +104,8 @@
 		<item>KCAROLYN</item>
 		<item>KEANWONG</item>
 		<item>KEITHANG</item>
-		<item>KENNYC</item> 
+		<item>KENNYC</item>
+ 		<item>KIANBENG</item>
 		<item>KONGYY</item> 
 		<item>LAIHW</item>  
 		<item>LAREMYL</item>
@@ -123,6 +126,7 @@
 		<item>MNIRMALA</item>
 		<item>NEUGENE</item>
 		<item>NHUIYING</item>
+		<item>NIRMAL</item>
 		<item>NSANJAY</item>
 		<item>NSZAINAL</item>
 		<item>OCHERYL</item>
@@ -131,6 +135,7 @@
 		<item>RACHELAY</item>
 		<item>RACHLIM</item>
 		<item>RCHIEW</item> 
+		<item>RDANCEL</item>
 		<item>RJSCULLY</item>
 		<item>RKARNIOL</item>
 		<item>ROHITB</item> 
@@ -143,6 +148,7 @@
 		<item>SELINAL</item>
 		<item>SHAOH</item>  
 		<item>SIAUME</item> 
+		<item>SIMLINOI</item>
 		<item>SIMON</item>  
 		<item>STACEYC</item>
 		<item>SYLOW</item>  
@@ -157,13 +163,20 @@
 		<item>VALCHIA</item>
 		<item>VIJAYAN</item>
 		<item>WALTSIM</item>
+		<item>WAHYUDIS</item>
+		<item>WENGKIN</item>
 		<item>WRENNIE</item>
-		<item>XINEN</item>  
+		<item>XINEN</item>
+		<item>XUEYING</item>  
 		<item>YANLIANG</item>
 		<item>YEOSAMJO</item>
+		<item>YPRAJESH</item>
+		<item>YYENNIE</item>
 		<item>YYSANNE</item>
+		<item>ZAKIRH</item>
 		<item>ZENGKUN</item>
 		<item>ZOEYPHUA</item>
+		<item>ZUBAIDAH</item>
 		</coAuthor>
 		<addlReport insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>AAQILAH</item>
@@ -180,6 +193,7 @@
 		<item>AUDREYT</item>
 		<item>AWCW</item>        
 		<item>AYIYING</item>
+		<item>BOONLAI</item>
 		<item>BRYNASIM</item>
 		<item>CAIWJ</item>  
 		<item>CASSLIM</item>
@@ -203,6 +217,7 @@
 		<item>FEIMOK</item> 
 		<item>FIOCHAN</item>
 		<item>GAVIN</item>  
+		<item>GNIRMALA</item>
 		<item>GOYSHIYI</item>
 		<item>GURVEENK</item>
 		<item>HANQING</item>
@@ -213,6 +228,7 @@
 		<item>JANICEH</item>
 		<item>JANTAI</item> 
 		<item>JERMYNC</item>
+		<item>JEREMYAU</item>
 		<item>JIANXUAN</item>
 		<item>JIEMIN</item> 
 		<item>JINGJIE</item>
@@ -228,7 +244,8 @@
 		<item>KCAROLYN</item>
 		<item>KEANWONG</item>
 		<item>KEITHANG</item>
-		<item>KENNYC</item> 
+		<item>KENNYC</item>
+		<item>KIANBENG</item>
 		<item>KONGYY</item> 
 		<item>LAIHW</item>  
 		<item>LAREMYL</item>
@@ -249,6 +266,7 @@
 		<item>MNIRMALA</item>
 		<item>NEUGENE</item>
 		<item>NHUIYING</item>
+		<item>NIRMAL</item>
 		<item>NSANJAY</item>
 		<item>NSZAINAL</item>
 		<item>OCHERYL</item>
@@ -256,7 +274,8 @@
 		<item>RACHAELB</item>
 		<item>RACHELAY</item>
 		<item>RACHLIM</item>
-		<item>RCHIEW</item> 
+		<item>RCHIEW</item>
+		<item>RDANCEL</item> 
 		<item>RJSCULLY</item>
 		<item>RKARNIOL</item>
 		<item>ROHITB</item> 
@@ -268,7 +287,8 @@
 		<item>SARAANNK</item>
 		<item>SELINAL</item>
 		<item>SHAOH</item>  
-		<item>SIAUME</item> 
+		<item>SIAUME</item>
+		<item>SIMLINOI</item> 
 		<item>SIMON</item>  
 		<item>STACEYC</item>
 		<item>SYLOW</item>  
@@ -283,13 +303,20 @@
 		<item>VALCHIA</item>
 		<item>VIJAYAN</item>
 		<item>WALTSIM</item>
+		<item>WAHYUDIS</item>
+		<item>WENGKIN</item>
 		<item>WRENNIE</item>
-		<item>XINEN</item>  
+		<item>XINEN</item>
+		<item>XUEYING</item>  
 		<item>YANLIANG</item>
 		<item>YEOSAMJO</item>
+		<item>YPRAJESH</item>
+		<item>YYENNIE</item>
 		<item>YYSANNE</item>
+		<item>ZAKIRH</item>
 		<item>ZENGKUN</item>
 		<item>ZOEYPHUA</item>
+		<item>ZUBAIDAH</item>
 		</addlReport>
 		<copyright insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>SPH</item>
@@ -298,144 +325,6 @@
 		</copyright>
 		<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>ADELINEC</item>
-		<item>ADEWONG</item>
-		<item>AHYOKE</item>
-		<item>ANDRETEH</item>
-		<item>ANDREW</item>
-		<item>ANKITAV</item>
-		<item>ANN</item>
-		<item>ANTHONYP</item>
-		<item>BOONLAI</item>
-		<item>CAROLGAN</item>
-		<item>CHENGWEE</item>
-		<item>CHNGKEG</item>
-		<item>CHUAN</item>
-		<item>CLARAC</item>
-		<item>CONNIEER</item>
-		<item>CPERALTA</item>
-		<item>DANIELW</item>
-		<item>DENISE</item>
-		<item>DENNIS</item>
-		<item>DHANO</item>
-		<item>DHARMA</item>
-		<item>DMCMAHON</item>
-		<item>ECNG</item>
-		<item>ETAN</item>
-		<item>FABIUSC</item>
-		<item>FRAEMONE</item>
-		<item>GEOFFP</item>
-		<item>GORDON</item>
-		<item>GRACENG</item>
-		<item>GRACES</item>
-		<item>HAFIZ</item>
-		<item>HALIFAH</item>
-		<item>HANKEONG</item>
-		<item>HAYATI</item>
-		<item>HUNCHING</item>
-		<item>IANLIM</item>
-		<item>IGNATIUS</item>
-		<item>IRENEANG</item>
-		<item>IRENEGOH</item>
-		<item>JACKHEE</item>
-		<item>JANET</item>
-		<item>JANH</item>
-		<item>JANICE</item>
-		<item>JANNIM</item>
-		<item>JEFFANG</item>
-		<item>JERLEE</item>
-		<item>JGREEN</item>
-		<item>JJQUEK</item>
-		<item>JOANNA</item>
-		<item>JOMAR</item>
-		<item>JOSEPHS</item>
-		<item>JOYCETEO</item>
-		<item>JTURNER</item>
-		<item>JULIEK</item>
-		<item>KAICHAI</item>
-		<item>KELVINLW</item>
-		<item>KENCHEW</item>
-		<item>KENGFATT</item>
-		<item>KENGYAO</item>
-		<item>KHIM</item>
-		<item>KIMHOH</item>
-		<item>LAYTEEN</item>
-		<item>LELA</item>
-		<item>LIMZE</item>
-		<item>LINXINYI</item>
-		<item>LYUEXIN</item>
-		<item>MAGLUM</item>
-		<item>MAGPIE</item>
-		<item>MARCELP</item>
-		<item>MARKCHAN</item>
-		<item>MATTHEWT</item>
-		<item>MDNIZAM</item>
-		<item>MERLENE</item>
-		<item>MFENN</item>
-		<item>MSSEE</item>
-		<item>MUNSAN</item>
-		<item>MUIHOON</item>
-		<item>NANKOH</item>
-		<item>NGSLS</item>
-		<item>NKATRINA</item>
-		<item>NIRMAL</item>
-		<item>ONGYIERN</item>
-		<item>OOIH</item>
-		<item>PATWEE</item>
-		<item>PAMELAJC</item>
-		<item>PAULAM</item>
-		<item>PATRICKJ</item>
-		<item>PAULC</item>
-		<item>PETERWIL</item>
-		<item>PIKYEE</item>
-		<item>PONEIL</item>
-		<item>PSIOW</item>
-		<item>RDANCEL</item>
-		<item>RIANA</item>
-		<item>RHODA</item>
-		<item>ROBGREGG</item>
-		<item>SAMS</item>
-		<item>SANTOSH</item>
-		<item>SARIAL</item>
-		<item>SCFONG</item>
-		<item>SEAHL</item>
-		<item>SERL</item>
-		<item>SINSH</item>
-		<item>SIONG</item>
-		<item>SORFERN</item>
-		<item>SSYU</item>
-		<item>STANHO</item>
-		<item>STEVEN</item>
-		<item>SUJINT</item>
-		<item>SUK</item>
-		<item>SUMIKO</item>
-		<item>SURENDA</item>
-		<item>SUZANNE</item>
-		<item>SW</item>
-		<item>TONGMC</item>
-		<item>TRAJAN</item>
-		<item>VELLOOR</item>
-		<item>VICNG</item>
-		<item>WAIKHIM</item>
-		<item>WAIWAN</item>
-		<item>WENGKIN</item>
-		<item>WHOCK</item>
-		<item>WOEIWAN</item>
-		<item>WYCIN</item>
-		<item>XIUHUIL</item>
-		<item>YEOJESS</item>
-		<item>YEOKCG</item>
-		<item>YEEHWA</item>
-		<item>YOKETENG</item>
-		<item>YONGHM</item>
-		<item>YONGMIN</item>
-		<item>YSTEPH</item>
-		<item>YUEYUN</item>
-		<item>YUJIN</item>
-		<item>YULIN</item>
-		<item>YUENC</item>
-		<item>ZACH</item>
-		<item>ZAKIRH</item>
-		<item>ZILIANG</item>
 		</sub>
 		<checker insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>ADEWONG</item>
@@ -644,20 +533,22 @@
 	
 	<!--
 		#####################################
-		Online Metadata 
+		Print Metadata for web
 		#####################################
 	 -->	
-	<online>
+	<print>
 		<metadataNames>
-			<webcat1>ST</webcat1>
-			<webcat2>SUNTIMES</webcat2>
-			<webcat3>LIFE</webcat3>
-			<webcat4>LIFESTYLE</webcat4>
-			<webcat5>OTHERS</webcat5>
-			<mywebcat>MYP</mywebcat>
+			<primarycat>PRIMARYCAT</primarycat>
+			<hassecondarycat>SECONDARY</hassecondarycat>
+			<secondarycat>SECONDARYCAT</secondarycat>
 			<priority>PRIORITY</priority>
+			<exclusive>EXCLUSIVE</exclusive>
+			<hyperlink>HYPERLINK</hyperlink>
+			<keywords>KEYWORDS</keywords>
+			<sub>SUB</sub>
 		</metadataNames>	
-		<webcat1 insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<keywords file="C:/GitRepos/SPH/SPHMetadataGUI/SPHMetadataGUI/custommetadata/keywords.txt"/>
+		<primarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
 			<item>TOPOFTHENEWS</item> 
 			<item>ASIA</item> 
 			<item>SEASIA</item> 
@@ -674,91 +565,160 @@
 			<item>OPINOTHER</item> 
 			<item>SCIENCE</item> 
 			<item>INSIGHT</item> 
+		</primarycat>
+		<secondarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>BASKETBALL</item> 
+			<item>FOOTBALL</item> 
+			<item>TENNIS</item> 
+			<item>BADMINTON</item> 
+			<item>VOLLEYBALL</item> 
+			<item>CYCLING</item> 
+			<item>ARCHERY</item> 
+		</secondarycat>		
+		<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>1</item>
+			<item>2</item>
+			<item>3</item>
+			<item>4</item>
+			<item>5</item>
+			<item>6</item>
+			<item>7</item>
+			<item>8</item>
+			<item>9</item>
+			<item>10</item>		
+		</priority>
+		<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>ADELINEC</item>
+			<item>ADEWONG</item>
+			<item>AHYOKE</item>
+			<item>ANDRETEH</item>
+			<item>ANDREW</item>
+			<item>ANN</item>
+			<item>ANKITAV</item>
+			<item>ANTHONYP</item>
+			<item>BOONLAI</item>
+			<item>CAROLGAN</item>
+			<item>CHENGWEE</item>
+			<item>CHNGKEG</item>
+			<item>CHUAN</item>
+			<item>CLARAC</item>
+			<item>CONNIEER</item>
+			<item>CPERALTA</item>
+			<item>DANIELW</item>			
+		</sub>
+	</print>
+	
+		<!--
+		##########################################################################
+		Online Metadata for web
+		##########################################################################
+	 -->	
+	<online>
+		<metadataNames>
+			<webcat1>SINGAPORE</webcat1>
+			<webcat2>BUSINESS</webcat2>
+			<webcat3>SPORT</webcat3>
+			<webcat4>WORLD</webcat4>
+			<webcat5>OPINION</webcat5>
+			<webcat6>ASIA</webcat6>
+			<webcat7>LIFESTYLE</webcat7>
+			<webcat8>DIGITALLIFE</webcat8>
+			<catb>CATB</catb>
+			<copyright>COPYRIGHT</copyright>
+			<webcata>WEBCATA</webcata>
+		</metadataNames>	
+		<webcat1 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Courts &amp; Crime</item>
+			<item>Education</item>
+			<item>Housing</item>
+			<item>Transport</item>
+			<item>Health</item>
+			<item>Environment</item>
+			<item>More Singapore Stories</item>
 		</webcat1>
 		<webcat2 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>SUNHOME</item>
-			<item>SUNWORLD</item>
-			<item>INVEST</item>
-			<item>THINK</item>
-			<item>SUNSPORT</item>
+			<item>Property</item>
+			<item>Companies</item>
+			<item>Economy</item>
+			<item>Banking</item>
+			<item>SMEs</item>
+			<item>Markets</item>
+			<item>Start-Ups</item>
+			<item>More Business Stories</item>
 		</webcat2>
 		<webcat3 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>LIFEARTS</item>
-			<item>LIFEBOOKS</item>
-			<item>LIFEBUZZ</item>
-			<item>LIFEDESIGN</item>
-			<item>LIFEEVENTS</item>
-			<item>LIFEHOMEENT</item>
-			<item>LIFEMAILBAG</item>
-			<item>LIFEMOTORING</item>
-			<item>LIFEMOVIES</item>
-			<item>LIFEMUSIC</item>
-			<item>LIFENEWS</item>
-			<item>LIFEPEOPLE</item>
-			<item>LIFETRAVEL</item>
-			<item>LIFE</item>
+			<item>Football</item>
+			<item>Tennis</item>
+			<item>Formula 1</item>
+			<item>Basketball</item>
+			<item>Golf</item>
+			<item>School Sports</item>
+			<item>World Cup 2014</item>
+			<item>More Sport Stories</item>
 		</webcat3>
 		<webcat4 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>GO</item>
-			<item>LOOK</item>
-			<item>HOT</item>
-			<item>PULSE</item>
-			<item>REFLECT</item>
-			<item>RELAX</item>
-			<item>READ</item>
-			<item>TASTE</item>
-			<item>LIFESTYLE</item>
+			<item>Americas</item>
+			<item>Europe</item>
+			<item>Middle East</item>
+			<item>United States</item>
+			<item>More World Stories</item>
 		</webcat4>
 		<webcat5 insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>DLWORK</item>
-			<item>DLPLAY</item>
-			<item>DLTEST</item>
-			<item>DLDIY</item>
-			<item>DLGAMES</item>
-			<item>DLINTER</item>
-			<item>DLTECH</item>
-			<item>DLHELP</item>
-			<item>DLTECH</item>
-			<item>DLPLAYERS</item>
-			<item>DLGEAR</item>
-			<item>DLSP</item>
-			<item>DOT</item>
-			<item>IN</item>
-			<item>MYBKNOW</item>
-			<item>MYBLIVING</item>
-			<item>MYBHEALTH</item>
-			<item>MYBFEATURES</item>
-			<item>URBFEAT</item>
-			<item>URBLIFE</item>
-			<item>URBSHOP</item>
-			<item>NOTFORWEB</item>
+			<item>Columns</item>
+			<item>By Invitation</item>
+			<item>Eyes On Singapore</item>
+			<item>Eyes On The World</item>
+			<item>Eyes On The Economy</item>
+			<item>More Opinion Stories</item>
 		</webcat5>
-		<mywebcat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>News</item>
-			<item>Views</item>
-			<item>My Executive</item>
-			<item>Style</item>
-			<item>Showbiz</item>
-			<item>Eats</item>
-			<item>Shop</item>
-			<item>Journeys</item>
+		<webcat6 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>South-east Asia</item>
+			<item>East Asia</item>
+			<item>South Asia</item>
+			<item>Australia/New Zealand</item>
+			<item>More Asia Stories</item>
+		</webcat6>
+		<webcat7 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Food &amp; Wine</item>
+			<item>Movies</item>
+			<item>Music</item>
+			<item>Television</item>
+			<item>Travel</item>
+			<item>Theatre &amp; Dance</item>
+			<item>Visual Arts</item>
+			<item>Books</item>
+			<item>Home &amp; Garden</item>
+			<item>Motoring</item>
 			<item>Parenting</item>
-			<item>Active</item>
-			<item>Advance</item>
-			<item>Technology</item>
-			<item>Specials</item>		
-		</mywebcat>
-		<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-		<item>9</item>
-		<item>10</item>		
-		</priority>
-	</online>	
+			<item>More Lifestyle Stories</item>
+		</webcat7>
+		<webcat8 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Gaming</item>
+			<item>Phone</item>
+			<item>PCs</item>
+			<item>Photos</item>
+			<item>Tablets</item>
+			<item>Home</item>
+			<item>Sports</item>
+			<item>Audio</item>
+			<item>More Digital Life Stories</item>
+		</webcat8>
+		<catb insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Features</item>
+			<item>Reviews</item>
+			<item>Role Playing</item>
+			<item>Shooters</item>
+			<item>Sports</item>
+			<item>Action</item>
+			<item>Mobile</item>
+			<item>Opinion</item>
+			<item>Views</item>
+			<item>News</item>
+			<item>Others</item>
+		</catb>
+		<copyright insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>SPH</item>
+		<item>NONSPH</item>
+		</copyright>
+	</online>		
 </metadata>

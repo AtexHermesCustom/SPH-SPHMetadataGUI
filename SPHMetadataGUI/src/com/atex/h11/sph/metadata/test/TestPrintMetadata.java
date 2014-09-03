@@ -11,9 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import com.unisys.media.commonservices.dialogs.metadata.view.ICustomMetadataPanel;
-import com.atex.h11.sph.metadata.category.CustomMetadataPanel;
+import com.atex.h11.sph.metadata.print.CustomMetadataPanel;
 
-public class TestCategoryMetadata {
+public class TestPrintMetadata {
 
 	/**
 	 * @param args
@@ -24,11 +24,14 @@ public class TestCategoryMetadata {
 		final HashMap<String, String> metadata = new HashMap<String, String>();
 		
 		// sample metadata
-		metadata.put("SECTOR", "sector 2,sector 3,sector 7,xyz,sector 10");
-		metadata.put("INDUSTRY", "industry 1,industry 5,abc,hello,industry 8");
-		metadata.put("KEYWORDS", "keyword1,keyword2,keyword3");
-		metadata.put("SENTIMENT", "neutral");
-		metadata.put("WEBCATEGORY", "webcat");
+		metadata.put("PRIMARYCAT", "Top Stories");
+		metadata.put("SECONDARY", "true");
+		metadata.put("SECONDARYCAT", "TENNIS,BASKETBALL");
+		metadata.put("PRIORITY", "1");
+		metadata.put("EXCLUSIVE", "true");
+		metadata.put("HYPERLINK", "www.sph.com");
+		metadata.put("KEYWORDS", "apple,orange,banana,grape,papaya");
+		metadata.put("SUB", "sub 3");
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -54,7 +57,6 @@ public class TestCategoryMetadata {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 			System.out.println("Error:" + e.toString());
 		}		
 

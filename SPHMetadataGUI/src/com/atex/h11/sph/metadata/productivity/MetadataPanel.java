@@ -21,16 +21,12 @@ import com.atex.h11.sph.metadata.component.CheckBoxList;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.ComponentOrientation;
-import javax.swing.JDialog;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.awt.event.KeyEvent;
-import javax.swing.JEditorPane;
-import javax.swing.JFrame;
 
 public class MetadataPanel extends JPanel {
 

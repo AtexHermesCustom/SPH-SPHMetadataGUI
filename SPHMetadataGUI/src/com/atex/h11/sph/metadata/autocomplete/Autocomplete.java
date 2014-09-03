@@ -21,7 +21,7 @@ public class Autocomplete implements DocumentListener {
 	private JTextField textField;
 	private final List<String> keywords;
 	private Mode mode = Mode.INSERT;
-	private String delimiter = ","; 
+	private String delimiter = null; 
 
 	public Autocomplete(JTextField textField, List<String> keywords, String delimiter) {
 		this.textField = textField;

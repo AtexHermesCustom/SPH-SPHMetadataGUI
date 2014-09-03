@@ -18,6 +18,7 @@ public class CheckBoxList extends JList<JCheckBox> {
 	/**
 	 * This method initializes CheckBoxList	
 	 * 	
+	 * @param none
 	 * @return com.atex.h11.sph.metadata.component.CheckBoxList
 	 */	
 	public CheckBoxList() {
@@ -70,6 +71,9 @@ public class CheckBoxList extends JList<JCheckBox> {
 	
 	/**
 	 * This method enables/disables the object
+	 * 
+	 * @param none
+	 * @return none
 	 */
 	@Override
 	public void setEnabled(boolean enabled) {
@@ -80,6 +84,7 @@ public class CheckBoxList extends JList<JCheckBox> {
 	/**
 	 * This method returns the number of selected items
 	 * 	
+	 * @param none
 	 * @return int
 	 */	
 	public int getSelectedCount() {
@@ -96,6 +101,7 @@ public class CheckBoxList extends JList<JCheckBox> {
 	/**
 	 * This method returns an ArrayList of selected items
 	 * 	
+	 * @param none
 	 * @return ArrayList<String>	
 	 */	
 	public ArrayList<String> getSelectedList() {
@@ -111,7 +117,8 @@ public class CheckBoxList extends JList<JCheckBox> {
 	
 	/**
 	 * This method returns a comma-separated string of the selected items	
-	 * 	
+	 * 
+	 * @param none	
 	 * @return String
 	 */	
 	public String getSelectedListString() {
@@ -148,6 +155,20 @@ public class CheckBoxList extends JList<JCheckBox> {
 		}
 		repaint();	// needed
 	}
+	
+	/**
+	 * This method deselects all items in the list
+	 * 	
+	 * @param none
+	 * @return none
+	 */	
+	public void deselectAll() {
+		for (int i = 0; i < this.getModel().getSize(); i++) {
+			JCheckBox checkbox = (JCheckBox) this.getModel().getElementAt(i);
+			checkbox.setSelected(false);
+		}
+		//repaint(); // needed
+	}	
 	
 	/**
 	 * This method sets the selected items given a comma-separated string	

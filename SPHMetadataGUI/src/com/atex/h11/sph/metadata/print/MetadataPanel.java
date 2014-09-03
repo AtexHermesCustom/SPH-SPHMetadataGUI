@@ -150,6 +150,7 @@ public class MetadataPanel extends JPanel {
 	            	else {
 	            		jScrollSecondary.setEnabled(false);
 	            		cbListSecondary.setEnabled(false);
+	            		cbListSecondary.deselectAll();
 	            	}
 	            }
 	        });	

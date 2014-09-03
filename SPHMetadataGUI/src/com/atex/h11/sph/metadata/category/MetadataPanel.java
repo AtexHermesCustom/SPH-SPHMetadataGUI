@@ -10,12 +10,9 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JScrollPane;
 import com.atex.h11.sph.metadata.component.CheckBoxList;
-import javax.swing.JComboBox;
 import javax.xml.xpath.XPathExpressionException;
 import com.atex.h11.sph.metadata.common.ConfigModel;
 

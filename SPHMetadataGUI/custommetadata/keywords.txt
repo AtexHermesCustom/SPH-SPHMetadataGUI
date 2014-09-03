@@ -16,4 +16,3 @@ pear
 soursop
 strawberry
 watermelon
-hello

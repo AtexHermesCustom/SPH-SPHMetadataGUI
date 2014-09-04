@@ -539,7 +539,6 @@
 	<print>
 		<metadataNames>
 			<primarycat>PRIMARYCAT</primarycat>
-			<hassecondarycat>SECONDARY</hassecondarycat>
 			<secondarycat>SECONDARYCAT</secondarycat>
 			<priority>PRIORITY</priority>
 			<exclusive>EXCLUSIVE</exclusive>

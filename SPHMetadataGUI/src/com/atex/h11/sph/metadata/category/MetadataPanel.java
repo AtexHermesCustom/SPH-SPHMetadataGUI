@@ -1,19 +1,22 @@
 package com.atex.h11.sph.metadata.category;
 
 import java.util.HashMap;
-import javax.swing.JPanel;
+import java.awt.Color;
 import java.awt.Rectangle;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JLabel;
-import java.awt.Font;
-
+import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
-import com.atex.h11.sph.metadata.component.CheckBoxList;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.xml.xpath.XPathExpressionException;
+import com.atex.h11.sph.metadata.component.CheckBoxList;
 import com.atex.h11.sph.metadata.common.ConfigModel;
 
 public class MetadataPanel extends JPanel {
@@ -34,6 +37,8 @@ public class MetadataPanel extends JPanel {
 	private JScrollPane jScrollIndustries = null;
 	private JLabel jLabel1111 = null;
 	private JRadioButton jRadNeutralSentiment = null;
+	private JLabel jLabelSectorsMandate = null;
+	private JLabel jLabelIndustriesMandate = null;	
 	/**
 	 * This method initializes jScrollSectors	
 	 * 	
@@ -46,10 +51,19 @@ public class MetadataPanel extends JPanel {
 			DefaultListModel<JCheckBox> listModel = config.InitCheckBoxListModel("sector");	
 			cbListSectors = new CheckBoxList();
 			cbListSectors.setModel(listModel);
+			cbListSectors.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					if(cbListSectors.getSelectedCount() <= 0){
+						jLabelSectorsMandate.setVisible(true);
+					}
+					else {
+						jLabelSectorsMandate.setVisible(false);
+					}
+				}				
+			});
 			jScrollSectors = new JScrollPane(cbListSectors);
 			jScrollSectors.setBounds(new Rectangle(17, 34, 300, 289));
 			jScrollSectors.setFont(new Font("Dialog", Font.PLAIN, 12));
-			return jScrollSectors;
 		}
 		return jScrollSectors;
 	}
@@ -66,10 +80,19 @@ public class MetadataPanel extends JPanel {
 			DefaultListModel<JCheckBox> listModel = config.InitCheckBoxListModel("industry");
 			cbListIndustries = new CheckBoxList();
 			cbListIndustries.setModel(listModel);
+			cbListIndustries.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					if(cbListIndustries.getSelectedCount() <= 0){
+						jLabelIndustriesMandate.setVisible(true);
+					}
+					else {
+						jLabelIndustriesMandate.setVisible(false);
+					}
+				}				
+			});			
 			jScrollIndustries = new JScrollPane(cbListIndustries);
 			jScrollIndustries.setBounds(new Rectangle(332, 33, 300, 291));
 			jScrollIndustries.setFont(new Font("Dialog", Font.PLAIN, 12));
-			return jScrollIndustries;
 		}
 		return jScrollIndustries;
 	}		
@@ -83,7 +106,7 @@ public class MetadataPanel extends JPanel {
 		if (jTextKeywords == null) {
 			jTextKeywords = new JTextField();
 			jTextKeywords.setBounds(new Rectangle(14, 422, 614, 23));
-			jTextKeywords.setVisible(false);
+			jTextKeywords.setVisible(false);	// invisible -- not used here??
 		}
 		return jTextKeywords;
 	}
@@ -147,6 +170,9 @@ public class MetadataPanel extends JPanel {
 		
 		// set component values, read from the metadata hash
 		SetComponentValues();
+		
+		// check and highlight mandatory fields that are missing 
+		isReady();
 	}	
 	
 	/**
@@ -159,6 +185,22 @@ public class MetadataPanel extends JPanel {
 		this.setLayout(null);
 		this.setSize(720, 470);
 
+		jLabelSectorsMandate = new JLabel();
+		jLabelSectorsMandate.setBounds(new Rectangle(17, 327, 281, 16));
+		jLabelSectorsMandate.setForeground(Color.red);
+		jLabelSectorsMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelSectorsMandate.setText("<html>Sub-editors or Content producers, please fill this in.</html>");
+		jLabelSectorsMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelSectorsMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelSectorsMandate.setVisible(true);		
+		jLabelIndustriesMandate = new JLabel();
+		jLabelIndustriesMandate.setBounds(new Rectangle(332, 327, 281, 16));
+		jLabelIndustriesMandate.setForeground(Color.red);
+		jLabelIndustriesMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelIndustriesMandate.setText("<html>Sub-editors or Content producers, please fill this in.</html>");
+		jLabelIndustriesMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelIndustriesMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelIndustriesMandate.setVisible(true);
 		jLabel1111 = new JLabel();
 		jLabel1111.setBounds(new Rectangle(76, 449, 227, 16));
 		jLabel1111.setText("- separate keywords using commas");
@@ -186,6 +228,8 @@ public class MetadataPanel extends JPanel {
 		this.add(jLabel11, null);
 		this.add(jLabel111, null);
 		this.add(jLabel1111, null);
+		this.add(jLabelIndustriesMandate, null);
+		this.add(jLabelSectorsMandate, null);
 
 		this.add(getJTextKeywords(), null);
 		
@@ -216,8 +260,26 @@ public class MetadataPanel extends JPanel {
 	}
 	
 	public boolean isReady() {
-		// put any required validation here
-		return true;
+		/*
+		 * put any required validations here
+		 */
+		boolean isReady = true;
+		
+		// init
+		jLabelSectorsMandate.setVisible(false);
+		jLabelIndustriesMandate.setVisible(false);
+		
+		if (cbListSectors.getSelectedCount() <= 0) {
+			jLabelSectorsMandate.setVisible(true);
+			isReady = false;
+		}
+		
+		if (cbListIndustries.getSelectedCount() <= 0) {
+			jLabelIndustriesMandate.setVisible(true);
+			isReady = false;
+		}
+
+		return isReady;
 	}	
 	
 	public HashMap<String,String> GetMetadataValues() 

@@ -25,7 +25,6 @@ public class TestPrintMetadata {
 		
 		// sample metadata
 		metadata.put("PRIMARYCAT", "Top Stories");
-		metadata.put("SECONDARY", "true");
 		metadata.put("SECONDARYCAT", "TENNIS,BASKETBALL");
 		metadata.put("PRIORITY", "1");
 		metadata.put("EXCLUSIVE", "true");

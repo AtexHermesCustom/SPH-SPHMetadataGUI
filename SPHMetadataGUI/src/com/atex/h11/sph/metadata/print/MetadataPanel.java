@@ -10,8 +10,12 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -60,16 +64,15 @@ public class MetadataPanel extends JPanel {
 	private JLabel jLabelKeywords = null;
 	private JLabel jLabelPri = null;
 	private JTextField jTextFieldKeywords = null;
-	private JLabel jLabelPrimaryMandatory;
-	private JLabel jLabelSecondaryMandatory;
-	private JLabel jLabelPriorityMandatory;
-	private JLabel jLabelKeywordsMandatory;
+	private JLabel jLabelPrimaryMandate;
+	private JLabel jLabelSecondaryMandate;
+	private JLabel jLabelPriorityMandate;
+	private JLabel jLabelKeywordsMandate;
 	private JLabel jLabel1111 = null;
 	private JCheckBox jCheckBoxExclusive = null;
 	private JLabel jLabelVersion = null;
 	private JLabel jLabel1112 = null;
 	private JTextField jTextFieldURL = null;
-	private JCheckBox jCheckBoxSecondary = null;
 	
 	/**
 	 * This method initializes jTextFieldKeywords	
@@ -80,7 +83,21 @@ public class MetadataPanel extends JPanel {
 		if (jTextFieldKeywords == null) {
 			jTextFieldKeywords = new JTextField();
 			jTextFieldKeywords.setBounds(new Rectangle(37, 266, 369, 22));
-			jTextFieldKeywords.setToolTipText("Press ENTER to enter a new keyword");
+			jTextFieldKeywords.setToolTipText("Press ENTER to enter a new keyword.");
+			jTextFieldKeywords.addFocusListener(new FocusListener() {
+				@Override
+			    public void focusLost(FocusEvent e) {
+					if (! jTextFieldKeywords.getText().trim().matches(".*[A-Za-z0-9]+.*")) {
+						jLabelKeywordsMandate.setVisible(true);
+					}
+					else {
+						jLabelKeywordsMandate.setVisible(false);
+					}					
+			    }
+
+				@Override
+				public void focusGained(FocusEvent e) { }
+			});
 		}
 		return jTextFieldKeywords;
 	}
@@ -125,38 +142,23 @@ public class MetadataPanel extends JPanel {
 			jCmbPrimary.setName("");
 			jCmbPrimary.setFont(new Font("Dialog", Font.BOLD, 12));
 			jCmbPrimary.setMaximumRowCount(20);
+			jCmbPrimary.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+				    if (e.getStateChange() == ItemEvent.SELECTED) {
+				    	Object source = e.getItem();
+				    	if (((String)source).trim() == "") {
+				    		jLabelPrimaryMandate.setVisible(true);
+				    	}
+				    	else {
+				    		jLabelPrimaryMandate.setVisible(false);
+				    	}
+				    } 				
+				}
+			});				
 			config.InitComboBox(jCmbPrimary, "primarycat");
 		}
 		return jCmbPrimary;
 	}
-
-	/**
-	 * This method initializes jCheckBoxSec	
-	 * 	
-	 * @return javax.swing.JCheckBox	
-	 */
-	private JCheckBox getJCheckBoxSecondary() {
-		if (jCheckBoxSecondary == null) {
-			jCheckBoxSecondary = new JCheckBox();
-			jCheckBoxSecondary.setBounds(new Rectangle(526, 53, 21, 21));
-			jCheckBoxSecondary.setVisible(true);
-			jCheckBoxSecondary.addItemListener(new ItemListener() {
-	            @Override
-	            public void itemStateChanged(ItemEvent e) {
-	            	if (e.getStateChange() == ItemEvent.SELECTED) {
-	            		jScrollSecondary.setEnabled(true);
-	            		cbListSecondary.setEnabled(true);
-	            	}
-	            	else {
-	            		jScrollSecondary.setEnabled(false);
-	            		cbListSecondary.setEnabled(false);
-	            		cbListSecondary.deselectAll();
-	            	}
-	            }
-	        });	
-		}
-		return jCheckBoxSecondary;
-	}	
 	
 	/**
 	 * This method initializes getJScrollSecondary	
@@ -168,6 +170,16 @@ public class MetadataPanel extends JPanel {
 			DefaultListModel<JCheckBox> listModel = config.InitCheckBoxListModel("secondarycat");	
 			cbListSecondary = new CheckBoxList();
 			cbListSecondary.setModel(listModel);			
+			cbListSecondary.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e) {
+					if(cbListSecondary.getSelectedCount() <= 0){
+						jLabelSecondaryMandate.setVisible(true);
+					}
+					else {
+						jLabelSecondaryMandate.setVisible(false);
+					}
+				}				
+			});			
 			jScrollSecondary = new JScrollPane(cbListSecondary);
 			jScrollSecondary.setBounds(new Rectangle(435, 77, 233, 334));
 			jScrollSecondary.setBorder(null);
@@ -189,7 +201,20 @@ public class MetadataPanel extends JPanel {
 			jCmbPriority.setMaximumRowCount(10);
 			jCmbPriority.setSize(new Dimension(76, 21));
 			jCmbPriority.setLocation(new Point(37, 169));
-			jCmbPriority.setName("");			
+			jCmbPriority.setName("");		
+			jCmbPriority.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+				    if (e.getStateChange() == ItemEvent.SELECTED) {
+				    	Object source = e.getItem();
+				    	if (((String)source).trim() == "") {
+				    		jLabelPriorityMandate.setVisible(true);
+				    	}
+				    	else {
+				    		jLabelPriorityMandate.setVisible(false);
+				    	}
+				    } 				
+				}
+			});				
 			config.InitComboBox(jCmbPriority, "priority");
 		}
 		return jCmbPriority;
@@ -229,6 +254,9 @@ public class MetadataPanel extends JPanel {
 		
 		// set component values, read from the meta-data hash
 		SetComponentValues();
+		
+		// check and highlight mandatory fields that are missing 
+		isReady();		
 	}	
 	
 	/**
@@ -252,38 +280,38 @@ public class MetadataPanel extends JPanel {
 		jLabel1111.setBounds(new Rectangle(206, 143, 74, 23));
 		jLabel1111.setText("Exclusive");
 		jLabel1111.setFont(new Font("Dialog", Font.PLAIN, 14));
-		jLabelKeywordsMandatory = new JLabel();
-		jLabelKeywordsMandatory.setBounds(new Rectangle(38, 291, 368, 16));
-		jLabelKeywordsMandatory.setForeground(Color.red);
-		jLabelKeywordsMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelKeywordsMandatory.setText("");
-		jLabelKeywordsMandatory.setVerticalAlignment(SwingConstants.TOP);
-		jLabelKeywordsMandatory.setVerticalTextPosition(SwingConstants.TOP);
-		jLabelKeywordsMandatory.setVisible(true);
-		jLabelPriorityMandatory = new JLabel();
-		jLabelPriorityMandatory.setBounds(new Rectangle(37, 192, 292, 16));
-		jLabelPriorityMandatory.setForeground(Color.red);
-		jLabelPriorityMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelPriorityMandatory.setText("");
-		jLabelPriorityMandatory.setVerticalAlignment(SwingConstants.TOP);
-		jLabelPriorityMandatory.setVerticalTextPosition(SwingConstants.TOP);
-		jLabelPriorityMandatory.setVisible(true);
-		jLabelSecondaryMandatory = new JLabel();
-		jLabelSecondaryMandatory.setBounds(new Rectangle(437, 417, 259, 16));
-		jLabelSecondaryMandatory.setForeground(Color.red);
-		jLabelSecondaryMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelSecondaryMandatory.setText("");
-		jLabelSecondaryMandatory.setVerticalAlignment(SwingConstants.TOP);
-		jLabelSecondaryMandatory.setVerticalTextPosition(SwingConstants.TOP);
-		jLabelSecondaryMandatory.setVisible(true);
-		jLabelPrimaryMandatory = new JLabel();
-		jLabelPrimaryMandatory.setBounds(new Rectangle(37, 99, 292, 24));
-		jLabelPrimaryMandatory.setVerticalAlignment(SwingConstants.TOP);
-		jLabelPrimaryMandatory.setVerticalTextPosition(SwingConstants.TOP);
-		jLabelPrimaryMandatory.setFont(new Font("Dialog", Font.PLAIN, 12));
-		jLabelPrimaryMandatory.setForeground(Color.red);
-		jLabelPrimaryMandatory.setText("");
-		jLabelPrimaryMandatory.setVisible(true);
+		jLabelKeywordsMandate = new JLabel();
+		jLabelKeywordsMandate.setBounds(new Rectangle(38, 291, 368, 16));
+		jLabelKeywordsMandate.setForeground(Color.red);
+		jLabelKeywordsMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelKeywordsMandate.setText("<html>Reporters, please fill this in.</html>");
+		jLabelKeywordsMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelKeywordsMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelKeywordsMandate.setVisible(true);
+		jLabelPriorityMandate = new JLabel();
+		jLabelPriorityMandate.setBounds(new Rectangle(37, 192, 292, 16));
+		jLabelPriorityMandate.setForeground(Color.red);
+		jLabelPriorityMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelPriorityMandate.setText("<html>Sub-editors or Content producers, please fill this in.</html>");
+		jLabelPriorityMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelPriorityMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelPriorityMandate.setVisible(true);
+		jLabelPrimaryMandate = new JLabel();
+		jLabelPrimaryMandate.setBounds(new Rectangle(37, 99, 292, 24));
+		jLabelPrimaryMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelPrimaryMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelPrimaryMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelPrimaryMandate.setForeground(Color.red);
+		jLabelPrimaryMandate.setText("<html>Sub-editors or Content producers, please fill this in.</html>");
+		jLabelPrimaryMandate.setVisible(true);		
+		jLabelSecondaryMandate = new JLabel();
+		jLabelSecondaryMandate.setBounds(new Rectangle(437, 417, 259, 16));
+		jLabelSecondaryMandate.setForeground(Color.red);
+		jLabelSecondaryMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
+		jLabelSecondaryMandate.setText("<html>Sub-editors or Content producers, please fill this in.</html>");
+		jLabelSecondaryMandate.setVerticalAlignment(SwingConstants.TOP);
+		jLabelSecondaryMandate.setVerticalTextPosition(SwingConstants.TOP);
+		jLabelSecondaryMandate.setVisible(true);
 		jLabelPri = new JLabel();
 		jLabelPri.setFont(new Font("Dialog", Font.PLAIN, 14));
 		jLabelPri.setSize(new Dimension(73, 23));
@@ -297,7 +325,7 @@ public class MetadataPanel extends JPanel {
 		jLabel1.setBounds(new Rectangle(436, 53, 82, 24));
 		jLabel1.setToolTipText("You may select more than one web categories");
 		jLabel1.setText("<html>Secondary</html>");
-//		jLabel1.setBounds(new Rectangle(29, 119, 82, 30));
+		//jLabel1.setBounds(new Rectangle(29, 119, 82, 30));
 		jLabel1.setVerticalAlignment(SwingConstants.TOP);
 		jLabel1.setVerticalTextPosition(SwingConstants.TOP);
 		jLabel1.setFont(new Font("Dialog", Font.PLAIN, 14));
@@ -330,16 +358,15 @@ public class MetadataPanel extends JPanel {
 		this.add(jLabelKeywords, null);
 		this.add(jLabelPri, null);
 		this.add(getJTextFieldKeywords(), null);
-		this.add(jLabelPrimaryMandatory, null);
-		this.add(jLabelSecondaryMandatory, null);
-		this.add(jLabelPriorityMandatory, null);
-		this.add(jLabelKeywordsMandatory, null);
+		this.add(jLabelPrimaryMandate, null);
+		this.add(jLabelSecondaryMandate, null);
+		this.add(jLabelPriorityMandate, null);
+		this.add(jLabelKeywordsMandate, null);
 		this.add(jLabel1111, null);
 		this.add(getJCheckBoxExclusive(), null);
 		this.add(jLabelVersion, null);
 		this.add(jLabel1112, null);
 		this.add(getJTextFieldURL(), null);
-		this.add(getJCheckBoxSecondary(), null);
 
 		
 		// for keywords autocomplete
@@ -392,14 +419,6 @@ public class MetadataPanel extends JPanel {
 		else {
 			jCheckBoxExclusive.setSelected(false);
 		}		
-
-		if (metadata.containsKey(config.GetMetadataName("hassecondarycat"))) {
-			jCheckBoxSecondary.setSelected(metadata.get(config.GetMetadataName("hassecondarycat")).equalsIgnoreCase(Constants.TRUE));
-		}
-		else {
-			jCheckBoxSecondary.setSelected(false);
-		}		
-
 	}
 	
 	public boolean isReady() {
@@ -407,35 +426,33 @@ public class MetadataPanel extends JPanel {
 		 * put any required validations here
 		 */
 		boolean isReady = true;
-		String requiredMsg = "<html>You cannot leave this empty.</html>";
 
-		jLabelPrimaryMandatory.setText("");
-		jLabelSecondaryMandatory.setText("");
-		jLabelKeywordsMandatory.setText("");
-		jLabelPriorityMandatory.setText("");
+		jLabelPrimaryMandate.setVisible(false);
+		jLabelSecondaryMandate.setVisible(false);
+		jLabelKeywordsMandate.setVisible(false);
+		jLabelPriorityMandate.setVisible(false);
 
 		if (((String)jCmbPrimary.getSelectedItem()).trim().isEmpty() || jCmbPrimary.getSelectedIndex() < 0) {
-			jLabelPrimaryMandatory.setText(requiredMsg);
+			jLabelPrimaryMandate.setVisible(true);
 			isReady = false;
 		}
 		
+		if (cbListSecondary.getSelectedCount() <= 0) {
+			jLabelSecondaryMandate.setVisible(true);
+			// isReady = false;  	// Warning only - not mandatory
+		}
+		
+		
 		if (((String)jCmbPriority.getSelectedItem()).trim().isEmpty() || jCmbPriority.getSelectedIndex() < 0) {
-			jLabelPriorityMandatory.setText(requiredMsg);
+			jLabelPriorityMandate.setVisible(true);
 			isReady = false;
 		}
 		
 		if (! jTextFieldKeywords.getText().trim().matches(".*[A-Za-z0-9]+.*")) {
-			jLabelKeywordsMandatory.setText(requiredMsg);
+			jLabelKeywordsMandate.setVisible(true);
 			isReady = false;
 		}
-		
-		if (jCheckBoxSecondary.isSelected()) {
-			if (cbListSecondary.getSelectedCount() <= 0) {
-				jLabelSecondaryMandatory.setText(requiredMsg);
-				isReady = false;
-			}
-		}
-		
+				
 		return isReady;
 	}	
 	
@@ -458,7 +475,6 @@ public class MetadataPanel extends JPanel {
 	    retMetadata.put(config.GetMetadataName("secondarycat"), swapFunction(cbListSecondary.getSelectedListString()));
 		// checkbox
 	    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
-	    retMetadata.put(config.GetMetadataName("hassecondarycat"), jCheckBoxSecondary.isSelected() ? Constants.TRUE : Constants.FALSE);
 	    
 	    // update the keywords list file
 	    SaveKeywords(keywordsList);

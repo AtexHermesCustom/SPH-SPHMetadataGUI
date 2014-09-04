@@ -24,11 +24,11 @@ public class TestCategoryMetadata {
 		final HashMap<String, String> metadata = new HashMap<String, String>();
 		
 		// sample metadata
-		metadata.put("SECTOR", "sector 2,sector 3,sector 7,xyz,sector 10");
+		metadata.put("SECTOR", "sector 2,sector 3,sector 7,xyz,sector 10,Health");
 		metadata.put("INDUSTRY", "industry 1,industry 5,abc,hello,industry 8");
-		metadata.put("KEYWORDS", "keyword1,keyword2,keyword3");
 		metadata.put("SENTIMENT", "neutral");
-		metadata.put("WEBCATEGORY", "webcat");
+		//metadata.put("KEYWORDS", "keyword1,keyword2,keyword3");
+		//metadata.put("WEBCATEGORY", "webcat");
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		

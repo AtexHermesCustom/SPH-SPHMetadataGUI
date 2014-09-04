@@ -469,6 +469,9 @@ public class MetadataPanel extends JPanel {
 		
 		// set component values, read from the metadata hash
 		SetComponentValues();
+		
+		// check and highlight mandatory fields that are missing 
+		isReady();		
 	}	
 	
 	/**

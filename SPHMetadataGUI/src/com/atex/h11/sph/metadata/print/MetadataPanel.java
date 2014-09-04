@@ -51,6 +51,7 @@ public class MetadataPanel extends JPanel {
 	private Autocomplete autoComplete = null;
 	private final String COMMIT_ACTION = "commit";
 	private final String DELIMITER = ",";
+	private final String KEYWORDS_REGEX_CHECK = ".*[A-Za-z0-9]+.*";
 	
 	private JLabel jLabel112 = null;
 	private JComboBox<String> jCmbPrimary = null;
@@ -87,7 +88,7 @@ public class MetadataPanel extends JPanel {
 			jTextFieldKeywords.addFocusListener(new FocusListener() {
 				@Override
 			    public void focusLost(FocusEvent e) {
-					if (! jTextFieldKeywords.getText().trim().matches(".*[A-Za-z0-9]+.*")) {
+					if (! jTextFieldKeywords.getText().trim().matches(KEYWORDS_REGEX_CHECK)) {
 						jLabelKeywordsMandate.setVisible(true);
 					}
 					else {
@@ -448,7 +449,7 @@ public class MetadataPanel extends JPanel {
 			isReady = false;
 		}
 		
-		if (! jTextFieldKeywords.getText().trim().matches(".*[A-Za-z0-9]+.*")) {
+		if (! jTextFieldKeywords.getText().trim().matches(KEYWORDS_REGEX_CHECK)) {
 			jLabelKeywordsMandate.setVisible(true);
 			isReady = false;
 		}

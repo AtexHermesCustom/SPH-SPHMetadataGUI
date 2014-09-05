@@ -53,7 +53,7 @@ public class MetadataPanel extends JPanel {
 			cbListSectors.setModel(listModel);
 			cbListSectors.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					if(cbListSectors.getSelectedCount() <= 0){
+					if(cbListSectors.getSelectedListString().trim() == ""){
 						jLabelSectorsMandate.setVisible(true);
 					}
 					else {
@@ -82,7 +82,7 @@ public class MetadataPanel extends JPanel {
 			cbListIndustries.setModel(listModel);
 			cbListIndustries.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					if(cbListIndustries.getSelectedCount() <= 0){
+					if(cbListIndustries.getSelectedListString().trim() == ""){
 						jLabelIndustriesMandate.setVisible(true);
 					}
 					else {
@@ -269,12 +269,12 @@ public class MetadataPanel extends JPanel {
 		jLabelSectorsMandate.setVisible(false);
 		jLabelIndustriesMandate.setVisible(false);
 		
-		if (cbListSectors.getSelectedCount() <= 0) {
+		if (cbListSectors.getSelectedListString().trim() == "") {
 			jLabelSectorsMandate.setVisible(true);
 			isReady = false;
 		}
 		
-		if (cbListIndustries.getSelectedCount() <= 0) {
+		if (cbListIndustries.getSelectedListString().trim() == "") {
 			jLabelIndustriesMandate.setVisible(true);
 			isReady = false;
 		}

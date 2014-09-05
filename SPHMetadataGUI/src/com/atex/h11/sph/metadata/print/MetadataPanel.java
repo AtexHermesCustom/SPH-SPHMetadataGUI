@@ -16,8 +16,6 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -176,7 +174,7 @@ public class MetadataPanel extends JPanel {
 			cbListSecondary.setModel(listModel);			
 			cbListSecondary.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e) {
-					if(cbListSecondary.getSelectedCount() <= 0){
+					if(cbListSecondary.getSelectedListString().trim() == ""){
 						jLabelSecondaryMandate.setVisible(true);
 					}
 					else {
@@ -444,9 +442,9 @@ public class MetadataPanel extends JPanel {
 			isReady = false;
 		}
 		
-		if (cbListSecondary.getSelectedCount() <= 0) {
+		if (cbListSecondary.getSelectedListString().trim() == "") {
 			jLabelSecondaryMandate.setVisible(true);
-			// isReady = false;  	// Warning only - not mandatory
+			isReady = false;
 		}
 		
 		

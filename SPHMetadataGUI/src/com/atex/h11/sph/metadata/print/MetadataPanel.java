@@ -16,6 +16,8 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,6 +39,7 @@ import javax.xml.xpath.XPathExpressionException;
 import com.atex.h11.sph.metadata.component.CheckBoxList;
 import com.atex.h11.sph.metadata.common.ConfigModel;
 import com.atex.h11.sph.metadata.common.Constants;
+import com.atex.h11.sph.metadata.common.InfoBox;
 import com.atex.h11.sph.metadata.autocomplete.Autocomplete;
 
 
@@ -456,6 +459,16 @@ public class MetadataPanel extends JPanel {
 			jLabelKeywordsMandate.setVisible(true);
 			isReady = false;
 		}
+		
+		if (isReady) {
+			try {
+			    // update the keywords list file
+			    SaveKeywords(formatKeywordsList(jTextFieldKeywords.getText())); // replace ending comma
+			}
+			catch (Exception e) {
+				InfoBox.ShowException(e);
+			}
+		}
 				
 		return isReady;
 	}	
@@ -466,9 +479,7 @@ public class MetadataPanel extends JPanel {
 
 		// radio/check boxes
 		// Text area
-		String keywordsList = jTextFieldKeywords.getText();
-		keywordsList = keywordsList.replaceAll(",*$", ""); 	// replace ending comma
-		retMetadata.put(config.GetMetadataName("keywords"), keywordsList);
+		retMetadata.put(config.GetMetadataName("keywords"), formatKeywordsList(jTextFieldKeywords.getText()));
 		retMetadata.put(config.GetMetadataName("hyperlink"), jTextFieldURL.getText());	
 		// combo boxes
 		retMetadata.put(config.GetMetadataName("primarycat"), (String) jCmbPrimary.getSelectedItem());
@@ -480,13 +491,14 @@ public class MetadataPanel extends JPanel {
 		// checkbox
 	    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
 	    
-	    // update the keywords list file
-	    SaveKeywords(keywordsList);
-	    
 		return retMetadata;
 	}
 	
-	public String swapFunction(String a) {
+	private String formatKeywordsList(String kwList) {
+		return kwList.replaceAll(",*$", ""); // replace ending comma
+	}
+	
+	private String swapFunction(String a) {
 		  String webcat = a;
 		  // change to upper case
 		  webcat = webcat.toUpperCase();

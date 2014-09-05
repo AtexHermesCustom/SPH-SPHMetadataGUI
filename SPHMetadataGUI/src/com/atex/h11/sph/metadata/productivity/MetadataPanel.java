@@ -458,6 +458,37 @@ public class MetadataPanel extends JPanel {
 	}
 	
 	/**
+	 * This method initializes jChkOnlineWire	
+	 * 	
+	 * @return javax.swing.JCheckBox	
+	 */
+	private JCheckBox getJChkOnlineWire() {
+		if (jChkOnlineWire == null) {
+			jChkOnlineWire = new JCheckBox();
+			jChkOnlineWire.setBounds(new Rectangle(555, 255, 128, 24));
+			jChkOnlineWire.setText("Wire");
+			jChkOnlineWire.setFont(new Font("Dialog", Font.PLAIN, 12));
+		}
+		return jChkOnlineWire;
+	}
+
+	/**
+	 * This method initializes jCmbCopyright	
+	 * 	
+	 * @return javax.swing.JComboBox	
+	 */
+	private JComboBox<String> getJCmbCopyright() throws XPathExpressionException {
+		if (jCmbCopyright == null) {
+			jCmbCopyright = new JComboBox<String>();
+			jCmbCopyright.setBounds(new Rectangle(135, 420, 111, 21));
+			jCmbCopyright.setMaximumRowCount(8);
+			jCmbCopyright.setName("");
+			config.InitComboBox(jCmbCopyright, "copyright");			
+		}
+		return jCmbCopyright;
+	}	
+	
+	/**
 	 * This is the default constructor
 	 */
 	public MetadataPanel(ConfigModel config, HashMap<String, String> metadata) 
@@ -922,38 +953,5 @@ public class MetadataPanel extends JPanel {
 		// put any required validation here
 		return true;
 	}
-
-	/**
-	 * This method initializes jChkOnlineWire	
-	 * 	
-	 * @return javax.swing.JCheckBox	
-	 */
-	private JCheckBox getJChkOnlineWire() {
-		if (jChkOnlineWire == null) {
-			jChkOnlineWire = new JCheckBox();
-			jChkOnlineWire.setBounds(new Rectangle(555, 255, 128, 24));
-			jChkOnlineWire.setText("Wire");
-			jChkOnlineWire.setFont(new Font("Dialog", Font.PLAIN, 12));
-		}
-		return jChkOnlineWire;
-	}
-
-	/**
-	 * This method initializes jCmbCopyright	
-	 * 	
-	 * @return javax.swing.JComboBox	
-	 */
-	private JComboBox<String> getJCmbCopyright() throws XPathExpressionException {
-		if (jCmbCopyright == null) {
-			jCmbCopyright = new JComboBox<String>();
-			jCmbCopyright.setBounds(new Rectangle(135, 420, 111, 21));
-			jCmbCopyright.setMaximumRowCount(8);
-			jCmbCopyright.setName("");
-			config.InitComboBox(jCmbCopyright, "copyright");			
-		}
-		return jCmbCopyright;
-	}
-
-
 
 }  //  @jve:decl-index=0:visual-constraint="16,4"

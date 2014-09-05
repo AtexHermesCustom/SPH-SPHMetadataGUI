@@ -378,14 +378,17 @@ public class MetadataPanel extends JPanel {
 	private void initAutoComplete() 
 			throws FileNotFoundException, XPathExpressionException {
 		// read keywords from file
-		Scanner scanner = new Scanner(new File(keywordsFile));
 		keywords = new ArrayList<String>();
-		while (scanner.hasNext()) {
-			String s = scanner.next();
-			//System.out.println("added keyword: " + s);
-			keywords.add(s.toLowerCase());	// case-insensitive			
+		File kwFile = new File(keywordsFile);
+		if (kwFile.exists()) {
+			Scanner scanner = new Scanner(kwFile);
+			while (scanner.hasNext()) {
+				String s = scanner.next();
+				//System.out.println("added keyword: " + s);
+				keywords.add(s.toLowerCase());	// case-insensitive			
+			}
+			scanner.close();
 		}
-		scanner.close();		
 		
 		// autocomplete listener
 		autoComplete = new Autocomplete(getJTextFieldKeywords(), keywords, DELIMITER);

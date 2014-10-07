@@ -53,6 +53,7 @@ public class MetadataPanel extends JPanel {
 	private final String COMMIT_ACTION = "commit";
 	private final String DELIMITER = ",";
 	private final String KEYWORDS_REGEX_CHECK = ".*[A-Za-z0-9]+.*";
+	private boolean autoCompleteInAction;
 	
 	private JLabel jLabel112 = null;
 	private JComboBox<String> jCmbPrimary = null;
@@ -99,10 +100,13 @@ public class MetadataPanel extends JPanel {
 					else {
 						jLabelKeywordsMandate.setVisible(false);
 					}					
-			    }
+					autoCompleteInAction = false;
+				}
 
 				@Override
-				public void focusGained(FocusEvent e) { }
+				public void focusGained(FocusEvent e) { 
+					autoCompleteInAction = true;
+				}
 			});
 			jTextFieldKeywords.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -513,22 +517,26 @@ public class MetadataPanel extends JPanel {
 			throws XPathExpressionException, IOException {
 		HashMap<String,String> retMetadata = new HashMap<String,String>();
 
-		// radio/check boxes
-		// Text area
-		retMetadata.put(config.GetMetadataName("keywords"), formatKeywordsList(jTextFieldKeywords.getText()));
-		retMetadata.put(config.GetMetadataName("hyperlink"), jTextFieldURL.getText());	
-		// combo boxes
-		retMetadata.put(config.GetMetadataName("primarycat"), (String) jCmbPrimary.getSelectedItem());
-		retMetadata.put(config.GetMetadataName("pri"), swapFunction((String) jCmbPrimary.getSelectedItem()));
-		retMetadata.put(config.GetMetadataName("priority"), (String) jCmbPriority.getSelectedItem());
-		retMetadata.put(config.GetMetadataName("copyright"), (String) jCmbCopyright.getSelectedItem());
-		// Subbing info
-		retMetadata.put(config.GetMetadataName("sub"), (String) jCmbSub.getSelectedItem());
-		// checkbox lists
-	    retMetadata.put(config.GetMetadataName("secondarycat"), cbListSecondary.getSelectedListString());
-	    retMetadata.put(config.GetMetadataName("sec"), swapFunction(cbListSecondary.getSelectedListString()));
-		// checkbox
-	    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
+		if (!autoCompleteInAction) {
+			// get metadata values
+			
+			// radio/check boxes
+			// Text area
+			retMetadata.put(config.GetMetadataName("keywords"), formatKeywordsList(jTextFieldKeywords.getText()));
+			retMetadata.put(config.GetMetadataName("hyperlink"), jTextFieldURL.getText());	
+			// combo boxes
+			retMetadata.put(config.GetMetadataName("primarycat"), (String) jCmbPrimary.getSelectedItem());
+			retMetadata.put(config.GetMetadataName("pri"), swapFunction((String) jCmbPrimary.getSelectedItem()));
+			retMetadata.put(config.GetMetadataName("priority"), (String) jCmbPriority.getSelectedItem());
+			retMetadata.put(config.GetMetadataName("copyright"), (String) jCmbCopyright.getSelectedItem());
+			// Subbing info
+			retMetadata.put(config.GetMetadataName("sub"), (String) jCmbSub.getSelectedItem());
+			// checkbox lists
+		    retMetadata.put(config.GetMetadataName("secondarycat"), cbListSecondary.getSelectedListString());
+		    retMetadata.put(config.GetMetadataName("sec"), swapFunction(cbListSecondary.getSelectedListString()));
+			// checkbox
+		    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
+		}
 	    
 		return retMetadata;
 	}
@@ -571,7 +579,7 @@ public class MetadataPanel extends JPanel {
         FileWriter outFile = new FileWriter(keywordsFile);  
         BufferedWriter outStream = new BufferedWriter(outFile);  
         for (String s : keywords) {
-            outStream.write(s + "\n");  	
+            outStream.write(s + "\r\n");  	
         }
         outStream.close();  
 	}

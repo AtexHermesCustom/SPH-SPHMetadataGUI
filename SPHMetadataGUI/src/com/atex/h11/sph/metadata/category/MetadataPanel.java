@@ -272,13 +272,11 @@ public class MetadataPanel extends JPanel {
 		if (cbListSectors.getSelectedListString().trim() == "") {
 			jLabelSectorsMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 		
 		if (cbListIndustries.getSelectedListString().trim() == "") {
 			jLabelIndustriesMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 
 		return isReady;

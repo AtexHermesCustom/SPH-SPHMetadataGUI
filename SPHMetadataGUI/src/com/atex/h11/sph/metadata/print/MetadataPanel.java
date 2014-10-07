@@ -409,13 +409,10 @@ public class MetadataPanel extends JPanel {
 		this.add(jLabel1113, null);
 		
 		// for keywords autocomplete
-/* disabled by nq on 18/09/2014		
 		keywordsFile = config.GetAttribValue("keywords", "file");
 		initAutoComplete();
-*/
 	}
 
-/* disabled by nq on 18/09/2014		
 	private void initAutoComplete() 
 			throws FileNotFoundException, XPathExpressionException {
 		// read keywords from file
@@ -439,7 +436,6 @@ public class MetadataPanel extends JPanel {
 		getJTextFieldKeywords().getInputMap().put(KeyStroke.getKeyStroke("ENTER"), COMMIT_ACTION);
 		getJTextFieldKeywords().getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());			
 	}
-*/
 	
 	private void SetComponentValues() 
 			throws XPathExpressionException {
@@ -482,34 +478,28 @@ public class MetadataPanel extends JPanel {
 		if (((String)jCmbPrimary.getSelectedItem()).trim().isEmpty() || jCmbPrimary.getSelectedIndex() < 0) {
 			jLabelPrimaryMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 		
 		if (cbListSecondary.getSelectedListString().trim() == "") {
 			jLabelSecondaryMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 		
 		
 		if (((String)jCmbPriority.getSelectedItem()).trim().isEmpty() || jCmbPriority.getSelectedIndex() < 0) {
 			jLabelPriorityMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 		
 		if (! jTextFieldKeywords.getText().trim().matches(KEYWORDS_REGEX_CHECK)) {
 			jLabelKeywordsMandate.setVisible(true);
 //			isReady = false;
-			isReady = true;
 		}
 		
 		if (isReady) {
 			try {
 			    // update the keywords list file
-/* disabled by nq on 18/09/2014		
 			    SaveKeywords(formatKeywordsList(jTextFieldKeywords.getText())); // replace ending comma
-*/
 			}
 			catch (Exception e) {
 				InfoBox.ShowException(e);
@@ -564,9 +554,6 @@ public class MetadataPanel extends JPanel {
 	      return webcat;
 	}
 
-
-
-/* disabled by nq on 18/09/2014		
 	private void SaveKeywords(String keywordsList) 
 			throws IOException {	
 		// include newly entered keywords to the list
@@ -588,7 +575,6 @@ public class MetadataPanel extends JPanel {
         }
         outStream.close();  
 	}
-*/
 	
 }  //  @jve:decl-index=0:visual-constraint="-32,-1"
 

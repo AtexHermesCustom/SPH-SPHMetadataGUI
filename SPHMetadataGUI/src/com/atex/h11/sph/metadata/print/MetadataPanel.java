@@ -75,6 +75,10 @@ public class MetadataPanel extends JPanel {
 	private JLabel jLabelVersion = null;
 	private JLabel jLabel1112 = null;
 	private JTextField jTextFieldURL = null;
+
+	private JComboBox<String> jCmbCopyright = null;
+
+	private JLabel jLabel1113 = null;
 	
 	/**
 	 * This method initializes jTextFieldKeywords	
@@ -84,7 +88,7 @@ public class MetadataPanel extends JPanel {
 	private JTextField getJTextFieldKeywords() {
 		if (jTextFieldKeywords == null) {
 			jTextFieldKeywords = new JTextField();
-			jTextFieldKeywords.setBounds(new Rectangle(37, 266, 369, 22));
+			jTextFieldKeywords.setBounds(new Rectangle(37, 266, 289, 22));
 			jTextFieldKeywords.setToolTipText("Press ENTER to enter a new keyword.");
 			jTextFieldKeywords.addFocusListener(new FocusListener() {
 				@Override
@@ -99,6 +103,18 @@ public class MetadataPanel extends JPanel {
 
 				@Override
 				public void focusGained(FocusEvent e) { }
+			});
+			jTextFieldKeywords.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					String str = jTextFieldKeywords.getText().toLowerCase();
+//					String prefix = content.substring(w + 1).toLowerCase();
+
+					jTextFieldKeywords.setText(str + ", ");
+					
+					if (str != null && !str.isEmpty()) {
+						jLabelKeywordsMandate.setVisible(false);
+			        }					
+				}
 			});
 		}
 		return jTextFieldKeywords;
@@ -125,7 +141,7 @@ public class MetadataPanel extends JPanel {
 	private JCheckBox getJCheckBoxExclusive() {
 		if (jCheckBoxExclusive == null) {
 			jCheckBoxExclusive = new JCheckBox();
-			jCheckBoxExclusive.setBounds(new Rectangle(204, 163, 21, 21));
+			jCheckBoxExclusive.setBounds(new Rectangle(338, 266, 21, 21));
 		}
 		return jCheckBoxExclusive;
 	}
@@ -232,13 +248,28 @@ public class MetadataPanel extends JPanel {
 			jCmbSub = new JComboBox<String>();
 			jCmbSub.setName("");
 			jCmbSub.setMaximumRowCount(8);
-			jCmbSub.setBounds(new Rectangle(37, 410, 289, 21));
+			jCmbSub.setBounds(new Rectangle(36, 411, 176, 21));
 			config.InitComboBox(jCmbSub, "sub");
 		}
 		return jCmbSub;
 	}
 
-
+	/**
+	 * This method initializes jCmbCopyright	
+	 * 	
+	 * @return javax.swing.JComboBox	
+	 */
+	private JComboBox<String> getJCmbCopyright() throws XPathExpressionException{
+		if (jCmbCopyright == null) {
+			jCmbCopyright = new JComboBox<String>();
+			jCmbCopyright.setBounds(new Rectangle(271, 411, 133, 21));
+			jCmbCopyright.setMaximumRowCount(8);
+			jCmbCopyright.setName("");
+			config.InitComboBox(jCmbCopyright, "copyright");
+		}
+		return jCmbCopyright;
+	}
+	
 	/**
 	 * This is the default constructor
 	 * 
@@ -269,21 +300,25 @@ public class MetadataPanel extends JPanel {
 	 */
 	private void initialize() 
 			throws XPathExpressionException, FileNotFoundException {
+		jLabel1113 = new JLabel();
+		jLabel1113.setBounds(new Rectangle(271, 388, 72, 19));
+		jLabel1113.setText("Copyright");
+		jLabel1113.setFont(new Font("Dialog", Font.PLAIN, 14));
 		jLabel1112 = new JLabel();
 		jLabel1112.setBounds(new Rectangle(37, 327, 78, 19));
 		jLabel1112.setText("Hyperlink");
 		jLabel1112.setFont(new Font("Dialog", Font.PLAIN, 14));
 		jLabelVersion = new JLabel();
-		jLabelVersion.setBounds(new Rectangle(10, 458, 50, 18));
-		jLabelVersion.setFont(new Font("Dialog", Font.ITALIC, 8));
+		jLabelVersion.setBounds(new Rectangle(660, 448, 50, 18));
+		jLabelVersion.setFont(new Font("Dialog", Font.ITALIC, 12));
 		jLabelVersion.setForeground(Color.lightGray);
-		jLabelVersion.setText("v1.0.1");
+		jLabelVersion.setText(Constants.VERSION);
 		jLabel1111 = new JLabel();
-		jLabel1111.setBounds(new Rectangle(206, 143, 74, 23));
+		jLabel1111.setBounds(new Rectangle(340, 242, 74, 23));
 		jLabel1111.setText("Exclusive");
 		jLabel1111.setFont(new Font("Dialog", Font.PLAIN, 14));
 		jLabelKeywordsMandate = new JLabel();
-		jLabelKeywordsMandate.setBounds(new Rectangle(38, 291, 368, 16));
+		jLabelKeywordsMandate.setBounds(new Rectangle(38, 291, 209, 16));
 		jLabelKeywordsMandate.setForeground(Color.red);
 		jLabelKeywordsMandate.setFont(new Font("Dialog", Font.PLAIN, 12));
 		jLabelKeywordsMandate.setText("<html>Reporters, please fill this in.</html>");
@@ -370,12 +405,17 @@ public class MetadataPanel extends JPanel {
 		this.add(jLabel1112, null);
 		this.add(getJTextFieldURL(), null);
 
+		this.add(getJCmbCopyright(), null);
+		this.add(jLabel1113, null);
 		
 		// for keywords autocomplete
+/* disabled by nq on 18/09/2014		
 		keywordsFile = config.GetAttribValue("keywords", "file");
 		initAutoComplete();
+*/
 	}
-	
+
+/* disabled by nq on 18/09/2014		
 	private void initAutoComplete() 
 			throws FileNotFoundException, XPathExpressionException {
 		// read keywords from file
@@ -399,6 +439,7 @@ public class MetadataPanel extends JPanel {
 		getJTextFieldKeywords().getInputMap().put(KeyStroke.getKeyStroke("ENTER"), COMMIT_ACTION);
 		getJTextFieldKeywords().getActionMap().put(COMMIT_ACTION, autoComplete.new CommitAction());			
 	}
+*/
 	
 	private void SetComponentValues() 
 			throws XPathExpressionException {
@@ -406,6 +447,7 @@ public class MetadataPanel extends JPanel {
 		// combo boxes
 		jCmbPrimary.setSelectedItem(metadata.get(config.GetMetadataName("primarycat")));
 		jCmbPriority.setSelectedItem(metadata.get(config.GetMetadataName("priority")));
+		jCmbCopyright.setSelectedItem(metadata.get(config.GetMetadataName("copyright")));
 
 		// subbing info
 		jCmbSub.setSelectedItem(metadata.get(config.GetMetadataName("sub")));
@@ -439,29 +481,35 @@ public class MetadataPanel extends JPanel {
 
 		if (((String)jCmbPrimary.getSelectedItem()).trim().isEmpty() || jCmbPrimary.getSelectedIndex() < 0) {
 			jLabelPrimaryMandate.setVisible(true);
-			isReady = false;
+//			isReady = false;
+			isReady = true;
 		}
 		
 		if (cbListSecondary.getSelectedListString().trim() == "") {
 			jLabelSecondaryMandate.setVisible(true);
-			isReady = false;
+//			isReady = false;
+			isReady = true;
 		}
 		
 		
 		if (((String)jCmbPriority.getSelectedItem()).trim().isEmpty() || jCmbPriority.getSelectedIndex() < 0) {
 			jLabelPriorityMandate.setVisible(true);
-			isReady = false;
+//			isReady = false;
+			isReady = true;
 		}
 		
 		if (! jTextFieldKeywords.getText().trim().matches(KEYWORDS_REGEX_CHECK)) {
 			jLabelKeywordsMandate.setVisible(true);
-			isReady = false;
+//			isReady = false;
+			isReady = true;
 		}
 		
 		if (isReady) {
 			try {
 			    // update the keywords list file
+/* disabled by nq on 18/09/2014		
 			    SaveKeywords(formatKeywordsList(jTextFieldKeywords.getText())); // replace ending comma
+*/
 			}
 			catch (Exception e) {
 				InfoBox.ShowException(e);
@@ -481,11 +529,14 @@ public class MetadataPanel extends JPanel {
 		retMetadata.put(config.GetMetadataName("hyperlink"), jTextFieldURL.getText());	
 		// combo boxes
 		retMetadata.put(config.GetMetadataName("primarycat"), (String) jCmbPrimary.getSelectedItem());
+		retMetadata.put(config.GetMetadataName("pri"), swapFunction((String) jCmbPrimary.getSelectedItem()));
 		retMetadata.put(config.GetMetadataName("priority"), (String) jCmbPriority.getSelectedItem());
+		retMetadata.put(config.GetMetadataName("copyright"), (String) jCmbCopyright.getSelectedItem());
 		// Subbing info
 		retMetadata.put(config.GetMetadataName("sub"), (String) jCmbSub.getSelectedItem());
 		// checkbox lists
-	    retMetadata.put(config.GetMetadataName("secondarycat"), swapFunction(cbListSecondary.getSelectedListString()));
+	    retMetadata.put(config.GetMetadataName("secondarycat"), cbListSecondary.getSelectedListString());
+	    retMetadata.put(config.GetMetadataName("sec"), swapFunction(cbListSecondary.getSelectedListString()));
 		// checkbox
 	    retMetadata.put(config.GetMetadataName("exclusive"), jCheckBoxExclusive.isSelected() ? Constants.TRUE : Constants.FALSE);
 	    
@@ -513,6 +564,9 @@ public class MetadataPanel extends JPanel {
 	      return webcat;
 	}
 
+
+
+/* disabled by nq on 18/09/2014		
 	private void SaveKeywords(String keywordsList) 
 			throws IOException {	
 		// include newly entered keywords to the list
@@ -534,6 +588,7 @@ public class MetadataPanel extends JPanel {
         }
         outStream.close();  
 	}
+*/
 	
 }  //  @jve:decl-index=0:visual-constraint="-32,-1"
 

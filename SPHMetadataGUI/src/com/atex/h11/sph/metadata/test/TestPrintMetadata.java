@@ -24,13 +24,14 @@ public class TestPrintMetadata {
 		final HashMap<String, String> metadata = new HashMap<String, String>();
 		
 		// sample metadata
-		metadata.put("PRIMARYCAT", "Top Stories");
-		metadata.put("SECONDARYCAT", "TENNIS,BASKETBALL");
+		metadata.put("PRIMARYCAT", "Real Estate");
+		metadata.put("SECONDARYCAT", "None");
 		metadata.put("PRIORITY", "1");
-		metadata.put("EXCLUSIVE", "true");
+		metadata.put("PREMIUM", "true");
 		metadata.put("HYPERLINK", "www.sph.com");
 		metadata.put("KEYWORDS", "apple,orange,banana,grape,papaya");
 		metadata.put("SUB", "sub 3");
+//		metadata.put("COPYRIGHT", "SPH");
 		
 		jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		

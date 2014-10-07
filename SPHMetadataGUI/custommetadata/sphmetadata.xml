@@ -42,281 +42,11 @@
 		<item>AAQILAH</item>
 		<item>ABCALUAG</item>
 		<item>ALVINLIM</item>
-		<item>AMELTAN</item>
-		<item>AMETAN</item> 
-		<item>AMIRAAK</item>
-		<item>ANDREAO</item>
-		<item>ANITAG</item> 
-		<item>ASAD</item>   
-		<item>ASYIQINS</item>
-		<item>AUDKANG</item>
-		<item>AUDREYT</item>
-		<item>AWCW</item>        
-		<item>AYIYING</item>
-		<item>BRYNASIM</item>
-		<item>BOONLAI</item>
-		<item>CAIWJ</item>  
-		<item>CASSLIM</item>
-		<item>CHARYONG</item>
-		<item>CHEWMQ</item> 
-		<item>CHIAYM</item> 
-		<item>CHIAZYA</item>
-		<item>CHINGYL</item>
-		<item>CHINLIAN</item>
-		<item>CHONGNQ</item>
-		<item>CTHIO</item>  
-		<item>DAVIDEE</item>
-		<item>DAVIDLEE</item>
-		<item>DERRICKH</item>
-		<item>DIONELEE</item>
-		<item>DSHEA</item>  
-		<item>ELENA</item>  
-		<item>ENGYEOW</item>
-		<item>ESTHERT</item>
-		<item>FABKOH</item> 
-		<item>FEIMOK</item> 
-		<item>FIOCHAN</item>
-		<item>GAVIN</item>
-		<item>GNIRMALA</item>  
-		<item>GOYSHIYI</item>
-		<item>GURVEENK</item>
-		<item>HANQING</item>
-		<item>HPEISHAN</item>
-		<item>ITHAM</item>  
-		<item>IVANTYH</item>
-		<item>JALMSAB</item>
-		<item>JANICEH</item>
-		<item>JANTAI</item> 
-		<item>JEREMYAU</item>
-		<item>JERMYNC</item>
-		<item>JIANXUAN</item>
-		<item>JIEMIN</item> 
-		<item>JINGJIE</item>
-		<item>JINHET</item> 
-		<item>JLENOX</item> 
-		<item>JONKWOK</item>
-		<item>JOSEHONG</item>
-		<item>JOSEOW</item> 
-		<item>JOYCEL</item> 
-		<item>JXNG</item>   
-		<item>KAILING</item>
-		<item>KARAM</item>  
-		<item>KCAROLYN</item>
-		<item>KEANWONG</item>
-		<item>KEITHANG</item>
-		<item>KENNYC</item>
- 		<item>KIANBENG</item>
-		<item>KONGYY</item> 
-		<item>LAIHW</item>  
-		<item>LAREMYL</item>
-		<item>LEECMEI</item>
-		<item>LEEPEARL</item>
-		<item>LIMJESS</item>
-		<item>LIMYIHAN</item>
-		<item>LINETTEL</item>
-		<item>LKOH</item>   
-		<item>LLIM</item>   
-		<item>MARYAMM</item>
-		<item>MATTCHEW</item>
-		<item>MAYCHEN</item>
-		<item>MELHENG</item>
-		<item>MELISSAT</item>
-		<item>MELLINJM</item>
-		<item>MELODYZ</item>
-		<item>MNIRMALA</item>
-		<item>NEUGENE</item>
-		<item>NHUIYING</item>
-		<item>NIRMAL</item>
-		<item>NSANJAY</item>
-		<item>NSZAINAL</item>
-		<item>OCHERYL</item>
-		<item>POHIAN</item> 
-		<item>RACHAELB</item>
-		<item>RACHELAY</item>
-		<item>RACHLIM</item>
-		<item>RCHIEW</item> 
-		<item>RDANCEL</item>
-		<item>RJSCULLY</item>
-		<item>RKARNIOL</item>
-		<item>ROHITB</item> 
-		<item>ROYSIM</item> 
-		<item>RUTHLEE</item>
-		<item>SALIM</item>  
-		<item>SALMA</item>  
-		<item>SAMENG</item> 
-		<item>SARAANNK</item>
-		<item>SELINAL</item>
-		<item>SHAOH</item>  
-		<item>SIAUME</item> 
-		<item>SIMLINOI</item>
-		<item>SIMON</item>  
-		<item>STACEYC</item>
-		<item>SYLOW</item>  
-		<item>TANHY</item>  
-		<item>TANJYA</item> 
-		<item>TEEZHUO</item>
-		<item>TOHYC</item>  
-		<item>TSHINING</item>
-		<item>TWONG</item>  
-		<item>TWTOH</item>  
-		<item>UGENEC</item> 
-		<item>VALCHIA</item>
-		<item>VIJAYAN</item>
-		<item>WALTSIM</item>
-		<item>WAHYUDIS</item>
-		<item>WENGKIN</item>
-		<item>WRENNIE</item>
-		<item>XINEN</item>
-		<item>XUEYING</item>  
-		<item>YANLIANG</item>
-		<item>YEOSAMJO</item>
-		<item>YPRAJESH</item>
-		<item>YYENNIE</item>
-		<item>YYSANNE</item>
-		<item>ZAKIRH</item>
-		<item>ZENGKUN</item>
-		<item>ZOEYPHUA</item>
-		<item>ZUBAIDAH</item>
 		</coAuthor>
 		<addlReport insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>AAQILAH</item>
 		<item>ABCALUAG</item>
 		<item>ALVINLIM</item>
-		<item>AMELTAN</item>
-		<item>AMETAN</item> 
-		<item>AMIRAAK</item>
-		<item>ANDREAO</item>
-		<item>ANITAG</item> 
-		<item>ASAD</item>   
-		<item>ASYIQINS</item>
-		<item>AUDKANG</item>
-		<item>AUDREYT</item>
-		<item>AWCW</item>        
-		<item>AYIYING</item>
-		<item>BOONLAI</item>
-		<item>BRYNASIM</item>
-		<item>CAIWJ</item>  
-		<item>CASSLIM</item>
-		<item>CHARYONG</item>
-		<item>CHEWMQ</item> 
-		<item>CHIAYM</item> 
-		<item>CHIAZYA</item>
-		<item>CHINGYL</item>
-		<item>CHINLIAN</item>
-		<item>CHONGNQ</item>
-		<item>CTHIO</item>  
-		<item>DAVIDEE</item>
-		<item>DAVIDLEE</item>
-		<item>DERRICKH</item>
-		<item>DIONELEE</item>
-		<item>DSHEA</item>  
-		<item>ELENA</item>  
-		<item>ENGYEOW</item>
-		<item>ESTHERT</item>
-		<item>FABKOH</item> 
-		<item>FEIMOK</item> 
-		<item>FIOCHAN</item>
-		<item>GAVIN</item>  
-		<item>GNIRMALA</item>
-		<item>GOYSHIYI</item>
-		<item>GURVEENK</item>
-		<item>HANQING</item>
-		<item>HPEISHAN</item>
-		<item>ITHAM</item>  
-		<item>IVANTYH</item>
-		<item>JALMSAB</item>
-		<item>JANICEH</item>
-		<item>JANTAI</item> 
-		<item>JERMYNC</item>
-		<item>JEREMYAU</item>
-		<item>JIANXUAN</item>
-		<item>JIEMIN</item> 
-		<item>JINGJIE</item>
-		<item>JINHET</item> 
-		<item>JLENOX</item> 
-		<item>JONKWOK</item>
-		<item>JOSEHONG</item>
-		<item>JOSEOW</item> 
-		<item>JOYCEL</item> 
-		<item>JXNG</item>   
-		<item>KAILING</item>
-		<item>KARAM</item>  
-		<item>KCAROLYN</item>
-		<item>KEANWONG</item>
-		<item>KEITHANG</item>
-		<item>KENNYC</item>
-		<item>KIANBENG</item>
-		<item>KONGYY</item> 
-		<item>LAIHW</item>  
-		<item>LAREMYL</item>
-		<item>LEECMEI</item>
-		<item>LEEPEARL</item>
-		<item>LIMJESS</item>
-		<item>LIMYIHAN</item>
-		<item>LINETTEL</item>
-		<item>LKOH</item>   
-		<item>LLIM</item>   
-		<item>MARYAMM</item>
-		<item>MATTCHEW</item>
-		<item>MAYCHEN</item>
-		<item>MELHENG</item>
-		<item>MELISSAT</item>
-		<item>MELLINJM</item>
-		<item>MELODYZ</item>
-		<item>MNIRMALA</item>
-		<item>NEUGENE</item>
-		<item>NHUIYING</item>
-		<item>NIRMAL</item>
-		<item>NSANJAY</item>
-		<item>NSZAINAL</item>
-		<item>OCHERYL</item>
-		<item>POHIAN</item> 
-		<item>RACHAELB</item>
-		<item>RACHELAY</item>
-		<item>RACHLIM</item>
-		<item>RCHIEW</item>
-		<item>RDANCEL</item> 
-		<item>RJSCULLY</item>
-		<item>RKARNIOL</item>
-		<item>ROHITB</item> 
-		<item>ROYSIM</item> 
-		<item>RUTHLEE</item>
-		<item>SALIM</item>  
-		<item>SALMA</item>  
-		<item>SAMENG</item> 
-		<item>SARAANNK</item>
-		<item>SELINAL</item>
-		<item>SHAOH</item>  
-		<item>SIAUME</item>
-		<item>SIMLINOI</item> 
-		<item>SIMON</item>  
-		<item>STACEYC</item>
-		<item>SYLOW</item>  
-		<item>TANHY</item>  
-		<item>TANJYA</item> 
-		<item>TEEZHUO</item>
-		<item>TOHYC</item>  
-		<item>TSHINING</item>
-		<item>TWONG</item>  
-		<item>TWTOH</item>  
-		<item>UGENEC</item> 
-		<item>VALCHIA</item>
-		<item>VIJAYAN</item>
-		<item>WALTSIM</item>
-		<item>WAHYUDIS</item>
-		<item>WENGKIN</item>
-		<item>WRENNIE</item>
-		<item>XINEN</item>
-		<item>XUEYING</item>  
-		<item>YANLIANG</item>
-		<item>YEOSAMJO</item>
-		<item>YPRAJESH</item>
-		<item>YYENNIE</item>
-		<item>YYSANNE</item>
-		<item>ZAKIRH</item>
-		<item>ZENGKUN</item>
-		<item>ZOEYPHUA</item>
-		<item>ZUBAIDAH</item>
 		</addlReport>
 		<copyright insertEmptyItem="1" selectFirstItemAsDefault="1">
 		<item>SPH</item>
@@ -479,55 +209,54 @@
 			<sentiment>SENTIMENT</sentiment>
 		</metadataNames>	
 		<sector>
-			<item>Personal Finance/Investment</item>
+			<item>News</item>
+			<item>Business</item>
+			<item>Property</item>
+			<item>Personal Finance/ Investment</item>
 			<item>Computer/IT</item>
 			<item>Education</item>
 			<item>Motoring</item>
-			<item>News</item>
-			<item>Business</item>
-			<item>Entertainment/Music/Movies/Dance</item>
-			<item>Fashion &amp; Beauty</item>
-			<item>Property</item>
-			<item>Shopping</item>
 			<item>Food/Culinary/Wine</item>
+			<item>Fashion &amp; Beauty</item>
 			<item>Health</item>
-			<item>Hobbies-Craft/Photography</item>
+			<item>Shopping</item>
+			<item>Entertainment/Music/Movies/Dance</item>
 			<item>Sports</item>
 			<item>Travel</item>
+			<item>Hobbies-Craft/Photography</item>
 			<item>Wedding/Parenting/Homes/Family</item>
 		</sector>
 		<industry>
+			<item>Property</item>
+			<item>Hotel</item>
+			<item>Retail (Shopping Mall, Supermarket, etc)</item>
 			<item>Banking &amp; Finance</item>
- 			<item>Beauty Services</item>
- 			<item>Consultancy</item>
- 			<item>Cosmetics/Beauty Products</item>
- 			<item>Durables</item>
- 			<item>Education</item>
- 			<item>Entertainment</item>
- 			<item>Exhibitions/Seminars</item>
- 			<item>Fashion</item>
- 			<item>FMCG</item>
- 			<item>FMCG (Consumer Edibles)</item>
- 			<item>Food &amp; Beverage</item>
- 			<item>Furniture &amp; Furnishing</item>
- 			<item>Government</item>
- 			<item>Hotel</item>
- 			<item>Industrial Products</item>
- 			<item>Insurance</item>
- 			<item>IT/Office Equipment</item>
- 			<item>Leisure</item>
- 			<item>Media</item>
- 			<item>Motoring</item>
- 			<item>Petrolchemical</item>
- 			<item>Pharmaceuticals/Medical</item>
- 			<item>Property</item>
- 			<item>Retail (Shopping Mall, Supermarket, etc)</item>
- 			<item>Shipping &amp; Logistics</item>
- 			<item>Sports</item>
- 			<item>Telecommunication</item>
- 			<item>Transportation</item>
- 			<item>Travel</item>
- 			<item>Watch &amp; Jewellery</item>					
+			<item>Insurance</item>
+			<item>Government</item>
+			<item>Motoring</item>
+			<item>Transportation</item>
+			<item>Shipping &amp; Logistics</item>
+			<item>Telecommunications</item>
+			<item>Pharmaceuticals/Medical</item>
+			<item>Petrochemical</item>
+			<item>Industrial Products</item>
+			<item>Consultancy</item>
+			<item>Education</item>
+			<item>Exhibitions/Seminars</item>
+			<item>FMCG</item>
+			<item>FMCG (Consumer Edibles)</item>
+			<item>Food &amp; Beverage</item>
+			<item>Watch &amp; Jewellery</item>
+			<item>Fashion</item>
+			<item>Cosmetics/Beauty Products</item>
+			<item>Beauty Services</item>
+			<item>Furniture &amp; Furnishing</item>
+			<item>IT/Office Equipment</item>
+			<item>Durables</item>
+			<item>Media</item>
+			<item>Entertainment</item>
+			<item>Leisure</item>
+			<item>Sports</item>
 		</industry>
 	</category>
 	
@@ -540,39 +269,88 @@
 		<metadataNames>
 			<primarycat>PRIMARYCAT</primarycat>
 			<secondarycat>SECONDARYCAT</secondarycat>
+			<pri>PRIMARY</pri>
+			<sec>SECONDARY</sec>
 			<priority>PRIORITY</priority>
-			<exclusive>EXCLUSIVE</exclusive>
+			<exclusive>PREMIUM</exclusive>
 			<hyperlink>HYPERLINK</hyperlink>
 			<keywords>KEYWORDS</keywords>
 			<sub>SUB</sub>
+			<copyright>COPYRIGHT</copyright>
 		</metadataNames>	
-		<keywords file="C:/GitRepos/SPH/SPHMetadataGUI/SPHMetadataGUI/custommetadata/keywords.txt"/>
+		<keywords file="C:/Hermes11/newsdata/SPHBHT11/user/keywords.txt"/>
 		<primarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>TOPOFTHENEWS</item> 
-			<item>ASIA</item> 
-			<item>SEASIA</item> 
-			<item>MASIA</item> 
-			<item>CHINA</item> 
-			<item>WORLD</item> 
-			<item>SPORE</item> 
-			<item>MONEY</item> 
-			<item>SPORT</item> 
-			<item>FORUM</item> 
-			<item>FORUMWEB</item> 
-			<item>SATSPECIAL</item> 
-			<item>OPINLEADER</item> 
-			<item>OPINOTHER</item> 
-			<item>SCIENCE</item> 
-			<item>INSIGHT</item> 
+			<item>Companies &amp; Markets</item>
+			<item>Stocks - Singapore</item>
+			<item>Stocks - Global</item>
+			<item>Real Estate</item>
+			<item>Banking &amp; Finance</item>
+			<item>Energy &amp; Commodities</item>
+			<item>Technology</item>
+			<item>Consumer</item>
+			<item>Transport</item>
+			<item>Gov &amp; Economy</item>
+			<item>Opinion - Editorial</item>
+			<item>Opinion - Commentaries</item>
+			<item>Opinion - Hock Lock Siew</item>
+			<item>Opinion - Sat Soapbox</item>
+			<item>Life &amp; Culture</item>
+			<item>Views From The Top</item>
+			<item>Young Investors' Forum</item>
+			<item>Dining Out</item>
+			<item>SME</item>
+			<item>Executive Money</item>
+			<item>Raffles Conversation</item>
+			<item>Wealth</item>
+			<item>Lifestyle - Food &amp; Drink</item>
+			<item>Lifestyle - Arts &amp; Entertainment</item>
+			<item>Lifestyle - Design</item>
+			<item>Lifestyle - Style</item>
+			<item>Lifestyle - Travel</item>
+			<item>Lifestyle - Motoring</item>
+			<item>Lifestyle - Health &amp; Wellness</item>
+			<item>Focus - In Depth</item>
+			<item>Focus - Magazines</item>
+			<item>Hub (Supplements)</item>
+			<item>Daily Digest</item>
 		</primarycat>
 		<secondarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>BASKETBALL</item> 
-			<item>FOOTBALL</item> 
-			<item>TENNIS</item> 
-			<item>BADMINTON</item> 
-			<item>VOLLEYBALL</item> 
-			<item>CYCLING</item> 
-			<item>ARCHERY</item> 
+			<item>None</item>
+			<item>Top Stories</item>
+			<item>Companies &amp; Markets</item>
+			<item>Stocks - Singapore</item>
+			<item>Stocks - Global</item>
+			<item>Real Estate</item>
+			<item>Banking &amp; Finance</item>
+			<item>Energy &amp; Commodities</item>
+			<item>Technology</item>
+			<item>Consumer</item>
+			<item>Transport</item>
+			<item>Gov &amp; Economy</item>
+			<item>Opinion - Editorial</item>
+			<item>Opinion - Commentaries</item>
+			<item>Opinion - Hock Lock Siew</item>
+			<item>Opinion - Sat Soapbox</item>
+			<item>Life &amp; Culture</item>
+			<item>Views From The Top</item>
+			<item>Young Investors' Forum</item>
+			<item>Dining Out</item>
+			<item>SME</item>
+			<item>Executive Money</item>
+			<item>Raffles Conversation</item>
+			<item>Wealth</item>
+			<item>Lifestyle (Friday)</item>
+			<item>Weekend Living</item>
+			<item>Lifestyle - Food &amp; Drink</item>
+			<item>Lifestyle - Arts &amp; Entertainment</item>
+			<item>Lifestyle - Design</item>
+			<item>Lifestyle - Style</item>
+			<item>Lifestyle - Travel</item>
+			<item>Lifestyle - Motoring</item>
+			<item>Lifestyle - Health &amp; Wellness</item>
+			<item>Focus - In Depth</item>
+			<item>Focus - Magazines</item>
+			<item>Hub (Supplements)</item>
 		</secondarycat>		
 		<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
 			<item>1</item>
@@ -587,24 +365,34 @@
 			<item>10</item>		
 		</priority>
 		<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
-			<item>ADELINEC</item>
-			<item>ADEWONG</item>
-			<item>AHYOKE</item>
-			<item>ANDRETEH</item>
-			<item>ANDREW</item>
-			<item>ANN</item>
-			<item>ANKITAV</item>
-			<item>ANTHONYP</item>
-			<item>BOONLAI</item>
-			<item>CAROLGAN</item>
-			<item>CHENGWEE</item>
-			<item>CHNGKEG</item>
-			<item>CHUAN</item>
-			<item>CLARAC</item>
-			<item>CONNIEER</item>
-			<item>CPERALTA</item>
-			<item>DANIELW</item>			
+			<item>ACHUTHAN</item>
+			<item>AGGIE</item>
+			<item>CHANTAL</item>
+			<item>DEXTER</item>
+			<item>HUATMAY</item>
+			<item>JOHNNY</item>
+			<item>KELVINL</item>
+			<item>KHALIDH</item>
+			<item>LILILEE</item>
+			<item>MICH</item>
+			<item>MING</item>
+			<item>NAVEEN</item>
+			<item>PENG</item>
+			<item>RONALD</item>
+			<item>SMENON</item>
+			<item>SWARAN</item>
+			<item>TIONGGEE</item>
+			<item>VIVANG</item>
+			<item>WOONCJA</item>
+			<item>YINPHENG</item>
+			<item>YSPOH</item>
+			<item>YUCF</item>		
 		</sub>
+		<copyright insertEmptyItem="0" selectFirstItemAsDefault="1">
+			<item>SPH</item>
+			<item>NONSPH</item>
+			<item>SHARED</item>			
+		</copyright>		
 	</print>
 	
 		<!--

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+	<configuration>
+		<logFile>log/SPHCustomMetadata.log</logFile>
+		<!-- logLevel allowed values (in ascending order, in terms of level of detail):
+			OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
+		-->
+		<logLevel>OFF</logLevel>
+	</configuration>
+	
+	<!--
+		#####################################
+		Print Metadata for web
+		#####################################
+	 -->	
+	<print>
+		<metadataNames>
+			<primarycat>PRIMARYCAT</primarycat>
+			<secondarycat>SECONDARYCAT</secondarycat>
+			<pri>PRIMARY</pri>
+			<sec>SECONDARY</sec>
+			<priority>PRIORITY</priority>
+			<exclusive>PREMIUM</exclusive>
+			<hyperlink>HYPERLINK</hyperlink>
+			<keywords>KEYWORDS</keywords>
+			<sub>SUB</sub>
+			<copyright>COPYRIGHT</copyright>
+		</metadataNames>	
+		<!-- <keywords file="C:/Hermes11/newsdata/SPHBHT11/user/keywords.txt"/> -->
+		<keywords file="C:/GitRepos/SPH/SPHMetadataGUI/SPHMetadataGUI/custommetadata/keywords.txt"/>
+		<primarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Companies &amp; Markets</item>
+			<item>Stocks - Singapore</item>
+			<item>Stocks - Global</item>
+			<item>Real Estate</item>
+			<item>Banking &amp; Finance</item>
+			<item>Energy &amp; Commodities</item>
+			<item>Technology</item>
+			<item>Consumer</item>
+			<item>Transport</item>
+			<item>Gov &amp; Economy</item>
+			<item>Opinion - Editorial</item>
+			<item>Opinion - Commentaries</item>
+			<item>Opinion - Hock Lock Siew</item>
+			<item>Opinion - Sat Soapbox</item>
+			<item>Life &amp; Culture</item>
+			<item>Views From The Top</item>
+			<item>Young Investors' Forum</item>
+			<item>Dining Out</item>
+			<item>SME</item>
+			<item>Executive Money</item>
+			<item>Raffles Conversation</item>
+			<item>Wealth</item>
+			<item>Lifestyle - Food &amp; Drink</item>
+			<item>Lifestyle - Arts &amp; Entertainment</item>
+			<item>Lifestyle - Design</item>
+			<item>Lifestyle - Style</item>
+			<item>Lifestyle - Travel</item>
+			<item>Lifestyle - Motoring</item>
+			<item>Lifestyle - Health &amp; Wellness</item>
+			<item>Focus - In Depth</item>
+			<item>Focus - Magazines</item>
+			<item>Hub (Supplements)</item>
+			<item>Daily Digest</item>
+		</primarycat>
+		<secondarycat insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>None</item>
+			<item>Top Stories</item>
+			<item>Companies &amp; Markets</item>
+			<item>Stocks - Singapore</item>
+			<item>Stocks - Global</item>
+			<item>Real Estate</item>
+			<item>Banking &amp; Finance</item>
+			<item>Energy &amp; Commodities</item>
+			<item>Technology</item>
+			<item>Consumer</item>
+			<item>Transport</item>
+			<item>Gov &amp; Economy</item>
+			<item>Opinion - Editorial</item>
+			<item>Opinion - Commentaries</item>
+			<item>Opinion - Hock Lock Siew</item>
+			<item>Opinion - Sat Soapbox</item>
+			<item>Life &amp; Culture</item>
+			<item>Views From The Top</item>
+			<item>Young Investors' Forum</item>
+			<item>Dining Out</item>
+			<item>SME</item>
+			<item>Executive Money</item>
+			<item>Raffles Conversation</item>
+			<item>Wealth</item>
+			<item>Lifestyle (Friday)</item>
+			<item>Weekend Living</item>
+			<item>Lifestyle - Food &amp; Drink</item>
+			<item>Lifestyle - Arts &amp; Entertainment</item>
+			<item>Lifestyle - Design</item>
+			<item>Lifestyle - Style</item>
+			<item>Lifestyle - Travel</item>
+			<item>Lifestyle - Motoring</item>
+			<item>Lifestyle - Health &amp; Wellness</item>
+			<item>Focus - In Depth</item>
+			<item>Focus - Magazines</item>
+			<item>Hub (Supplements)</item>
+		</secondarycat>		
+		<priority insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>1</item>
+			<item>2</item>
+			<item>3</item>
+			<item>4</item>
+			<item>5</item>
+			<item>6</item>
+			<item>7</item>
+			<item>8</item>
+			<item>9</item>
+			<item>10</item>		
+		</priority>
+		<sub insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>ACHUTHAN</item>
+			<item>AGGIE</item>
+			<item>CHANTAL</item>
+			<item>DEXTER</item>
+			<item>HUATMAY</item>
+			<item>JOHNNY</item>
+			<item>KELVINL</item>
+			<item>KHALIDH</item>
+			<item>LILILEE</item>
+			<item>MICH</item>
+			<item>MING</item>
+			<item>NAVEEN</item>
+			<item>PENG</item>
+			<item>RONALD</item>
+			<item>SMENON</item>
+			<item>SWARAN</item>
+			<item>TIONGGEE</item>
+			<item>VIVANG</item>
+			<item>WOONCJA</item>
+			<item>YINPHENG</item>
+			<item>YSPOH</item>
+			<item>YUCF</item>		
+		</sub>
+		<copyright insertEmptyItem="0" selectFirstItemAsDefault="1">
+			<item>SPH</item>
+			<item>NONSPH</item>
+			<item>SHARED</item>			
+		</copyright>		
+	</print>
+	
+</metadata>

@@ -48,9 +48,10 @@ public class ConfigModel {
 		// load props file
 		props = loadProperties(new File(Constants.METADATA_PROPERTIES_FILE));
 		
-		String xmlConfFile = props.getProperty(Constants.METADATA_CONFIG_FILE_PROPERTY);
+		// get xml config file per group
+		String xmlConfFile = props.getProperty(group);	
 		if (xmlConfFile == null || xmlConfFile.isEmpty()) {
-			throw new CustomException(Constants.METADATA_CONFIG_FILE_PROPERTY + " property cannot be found or is blank");
+			throw new CustomException("\"" + group + "\" property cannot be found or is blank");
 		}
 		
 		// load xml config file

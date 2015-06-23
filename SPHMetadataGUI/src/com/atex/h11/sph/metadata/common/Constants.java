@@ -25,7 +25,7 @@ public interface Constants {
 	// The path is relative to the HermesDir folder, i.e. the folder containing nroom.exe
 	public static final String METADATA_GUI_PATH = "c:\\Hermes11\\custommetadata\\";
 	public static final String METADATA_PROPERTIES_FILE = METADATA_GUI_PATH + "SPHMetadata.properties";
-	public static final String METADATA_CONFIG_FILE_PROPERTY = "MetadataConfigFile";
+	//public static final String METADATA_CONFIG_FILE_PROPERTY = "MetadataConfigFile";		// no longer used
 
 	public static final String FALSE = "false";
 	public static final String TRUE = "true";

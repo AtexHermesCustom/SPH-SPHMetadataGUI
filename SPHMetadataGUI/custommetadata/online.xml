@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+	<configuration>
+		<logFile>log/SPHCustomMetadata.log</logFile>
+		<!-- logLevel allowed values (in ascending order, in terms of level of detail):
+			OFF, SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST
+		-->
+		<logLevel>OFF</logLevel>
+	</configuration>
+	
+	<!--
+		##########################################################################
+		Online Metadata for web
+		##########################################################################
+	 -->	
+	<online>
+		<metadataNames>
+			<webcat1>SINGAPORE</webcat1>
+			<webcat2>BUSINESS</webcat2>
+			<webcat3>SPORT</webcat3>
+			<webcat4>WORLD</webcat4>
+			<webcat5>OPINION</webcat5>
+			<webcat6>ASIA</webcat6>
+			<webcat7>LIFESTYLE</webcat7>
+			<webcat8>DIGITALLIFE</webcat8>
+			<catb>CATB</catb>
+			<copyright>COPYRIGHT</copyright>
+			<webcata>WEBCATA</webcata>
+		</metadataNames>	
+		<webcat1 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Courts &amp; Crime</item>
+			<item>Education</item>
+			<item>Housing</item>
+			<item>Transport</item>
+			<item>Health</item>
+			<item>Environment</item>
+			<item>More Singapore Stories</item>
+		</webcat1>
+		<webcat2 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Property</item>
+			<item>Companies</item>
+			<item>Economy</item>
+			<item>Banking</item>
+			<item>SMEs</item>
+			<item>Markets</item>
+			<item>Start-Ups</item>
+			<item>More Business Stories</item>
+		</webcat2>
+		<webcat3 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Football</item>
+			<item>Tennis</item>
+			<item>Formula 1</item>
+			<item>Basketball</item>
+			<item>Golf</item>
+			<item>School Sports</item>
+			<item>World Cup 2014</item>
+			<item>More Sport Stories</item>
+		</webcat3>
+		<webcat4 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Americas</item>
+			<item>Europe</item>
+			<item>Middle East</item>
+			<item>United States</item>
+			<item>More World Stories</item>
+		</webcat4>
+		<webcat5 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Columns</item>
+			<item>By Invitation</item>
+			<item>Eyes On Singapore</item>
+			<item>Eyes On The World</item>
+			<item>Eyes On The Economy</item>
+			<item>More Opinion Stories</item>
+		</webcat5>
+		<webcat6 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>South-east Asia</item>
+			<item>East Asia</item>
+			<item>South Asia</item>
+			<item>Australia/New Zealand</item>
+			<item>More Asia Stories</item>
+		</webcat6>
+		<webcat7 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Food &amp; Wine</item>
+			<item>Movies</item>
+			<item>Music</item>
+			<item>Television</item>
+			<item>Travel</item>
+			<item>Theatre &amp; Dance</item>
+			<item>Visual Arts</item>
+			<item>Books</item>
+			<item>Home &amp; Garden</item>
+			<item>Motoring</item>
+			<item>Parenting</item>
+			<item>More Lifestyle Stories</item>
+		</webcat7>
+		<webcat8 insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Gaming</item>
+			<item>Phone</item>
+			<item>PCs</item>
+			<item>Photos</item>
+			<item>Tablets</item>
+			<item>Home</item>
+			<item>Sports</item>
+			<item>Audio</item>
+			<item>More Digital Life Stories</item>
+		</webcat8>
+		<catb insertEmptyItem="1" selectFirstItemAsDefault="1">
+			<item>Features</item>
+			<item>Reviews</item>
+			<item>Role Playing</item>
+			<item>Shooters</item>
+			<item>Sports</item>
+			<item>Action</item>
+			<item>Mobile</item>
+			<item>Opinion</item>
+			<item>Views</item>
+			<item>News</item>
+			<item>Others</item>
+		</catb>
+		<copyright insertEmptyItem="1" selectFirstItemAsDefault="1">
+		<item>SPH</item>
+		<item>NONSPH</item>
+		</copyright>
+	</online>		
+	
+</metadata>

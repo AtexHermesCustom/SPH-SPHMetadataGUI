@@ -2,6 +2,7 @@ apple
 banana
 blackberry
 blueberry
+cherry
 durian
 grape
 honeydew
@@ -16,4 +17,3 @@ pear
 soursop
 strawberry
 watermelon
-cherry

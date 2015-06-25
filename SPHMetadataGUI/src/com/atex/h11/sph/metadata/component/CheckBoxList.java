@@ -87,7 +87,7 @@ public class CheckBoxList extends JList<JCheckBox> {
 	            }
 	            
 	            private boolean isValidChar(Character ch) {
-	            	return (ch >= 32 && ch < 127);
+	            	return (ch >= 32 && ch < 127);	// only ASCII printable chars 
 	            }
 	            
 	            private void searchSelectItem() {

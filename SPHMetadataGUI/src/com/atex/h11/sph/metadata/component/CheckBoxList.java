@@ -1,11 +1,14 @@
 package com.atex.h11.sph.metadata.component;
 
 import java.awt.Component;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
@@ -14,6 +17,9 @@ public class CheckBoxList extends JList<JCheckBox> {
 	private static final long serialVersionUID = 1L;
 	private boolean enabled;
 	protected static Border noFocusBorder = new EmptyBorder(1, 1, 1, 1);
+	
+	private String keys = "";	// typed keys for searching
+	private ToolTipWindow toolTipWindow = new ToolTipWindow();
 
 	/**
 	 * This method initializes CheckBoxList	
@@ -52,8 +58,70 @@ public class CheckBoxList extends JList<JCheckBox> {
 								checkbox.setSelected(! checkbox.isSelected());
 								repaint();
 							}
+		                } else {
+	                		processKey(e);
 		                }
 	            	}
+	            }
+	            
+	            private void processKey(KeyEvent e) {
+	    		    char ch = e.getKeyChar();
+	    		    
+	    		    if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+	    		    	//System.out.println("backspace");
+	    		    	if (keys != null && !keys.isEmpty()) {
+	    		    		keys = keys.substring(0, keys.length() - 1);	// backspace
+	    		    		searchSelectItem();
+	    		    	}
+	    		    	
+	    		    } else if (isValidChar(ch)) {
+	    		    	//System.out.println("char: " + ch);
+	    			    keys += Character.toLowerCase(ch);
+	    			    searchSelectItem();    			 
+	    			    
+	    		    } else {
+	    		    	//System.out.println("discard");
+	    		    	keys = "";	// reset
+	    		    	toolTipWindow.hideTip();
+	    		    }		 
+	            }
+	            
+	            private boolean isValidChar(Character ch) {
+	            	return (ch >= 32 && ch < 127);
+	            }
+	            
+	            private void searchSelectItem() {
+		    		System.out.println(keys);
+		    		boolean foundMatch = false;
+		    		
+    			    // Iterate through items in the list until a matching prefix is found.
+    			    // This technique is fine for small lists, however, doing a linear
+    			    // search over a very large list with additional string manipulation
+    			    // (eg: toLowerCase) within the tight loop would be quite slow.
+    			    // In that case, pre-processing the case-conversions, and storing the
+    			    // strings in a more search-efficient data structure such as a Trie
+    			    // or a Ternary Search Tree would lead to much faster find.
+    			    for (int i = 0; i < getModel().getSize(); i++) {
+    			    	JCheckBox checkbox = ((JCheckBox) getModel().getElementAt(i));
+    			    	if (checkbox.getText().toLowerCase().startsWith(keys)) {
+    			            setSelectedIndex(i);     //change selected item in list
+    					    SwingUtilities.invokeLater(new Runnable() {
+    					    	public void run() {			            
+    					    		ensureIndexIsVisible(getSelectedIndex()); //change listbox scroll-position
+    					    	}
+    					    });
+    					    foundMatch = true;
+    			            break;
+    			        }
+    			    }	            	
+    			    
+    			    String tip;
+    			    if (foundMatch) {
+    			    	tip = "<html>Search for: " + keys + "</html>";
+    			    } else {
+    			    	tip = "<html>Search for: <font color='Red'>" + keys + " (no match)" + "</font></html>";
+    			    }
+		    		toolTipWindow.showTip(tip, getLocationOnScreen());    			    
 	            }
 
 	            @Override
@@ -61,6 +129,19 @@ public class CheckBoxList extends JList<JCheckBox> {
 
 	            @Override
 	            public void keyTyped(KeyEvent e) { }				
+			}
+		);
+		
+		addFocusListener(
+			new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) { }
+
+				@Override
+				public void focusLost(FocusEvent e) {
+    		    	keys = "";	// reset
+    		    	toolTipWindow.hideTip();					
+				}
 			}
 		);
 		

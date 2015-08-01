@@ -91,7 +91,7 @@ public class CheckBoxList extends JList<JCheckBox> {
 	            }
 	            
 	            private void searchSelectItem() {
-		    		System.out.println(keys);
+		    		//System.out.println(keys);
 		    		boolean foundMatch = false;
 		    		
     			    // Iterate through items in the list until a matching prefix is found.
